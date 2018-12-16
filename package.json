@@ -2,7 +2,7 @@
   "name": "ut-p3",
   "version": "1.0.0",
   "description": "",
-  "main": "web.py",
+  "main": "server.js",
   "dependencies": {
     "aws-sdk": "^2.377.0",
     "bcrypt": "^3.0.2",
