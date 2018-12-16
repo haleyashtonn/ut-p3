@@ -21,7 +21,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "git add . && git commit -m \"Auto Deploy\" && git push",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
