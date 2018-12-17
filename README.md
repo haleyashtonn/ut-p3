@@ -1,6 +1,3 @@
-Dev     -   https://dogwithfriends-dev.herokuapp.com/
-Prod    -   https://dogwithfriends.herokuapp.com/
-
 # Dogs with Friends
 
 A social media app where man's best friend makes great friends
