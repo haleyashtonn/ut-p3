@@ -1,4 +1,4 @@
-# Dogs with Friends
+# [Dogs with Friends](https://ut-p2.herokuapp.com/)
 
 A social media app where man's best friend makes great friends
 
