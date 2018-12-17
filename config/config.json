@@ -8,10 +8,10 @@
     },
       
     "production": {
-        "username": "cizxpydp6frc7cuk",
-        "password": "yxpdeyeske74lizq",
-        "database": "sn3rb7d79hi17dcp",
-        "host"    : "umabrisfx8afs3ja.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+        "username": "a9o45fvan625j5ou",
+        "password": "pkeoxkkv7xnh9wn2",
+        "database": "eejcds5nz0580ygr",
+        "host"    : "h2cwrn74535xdazj.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
         "dialect" : "mysql"
     }
 }
