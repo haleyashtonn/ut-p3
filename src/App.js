@@ -1,26 +1,47 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import DeleteBtn from './components/buttons/DeleteBtn'
+import PostBtn from './components/buttons/PostBtn'
+import UploadBtn from './components/buttons/UploadBtn'
+import SignUpBtn from './components/buttons/SignUpBtn'
+import EditBtn from './components/buttons/EditBtn'
+import LoginBtn from './components/buttons/LoginBtn'
+import NavBar from './components/pages/Navbar';
+import Footer from './components/pages/Footer';
+import SignUpForm from './components/forms/SignUpForm';
+import LoginForm from './components/forms/LoginForm';
+import DeleteForm from './components/forms/DeleteAccForm';
+import SettingsCardL from './components/cards/SettingsCardL';
+import SettingsCardR from './components/cards/SettingsCardR';
+import DeleteAccCard from './components/cards/DeleteCard';
+import MyDropzone from './components/inputs/Dropzone';
+import UploadForm from './components/forms/UploadForm';
+import FriendChip from './components/buttons/FriendChip';
+import Carousel from './display/Carousel';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+
+      <div>
+      <NavBar/>  
+      <DeleteBtn/>
+      <PostBtn/>
+      <UploadBtn/>
+      <SignUpBtn/>
+      <EditBtn/>
+      <LoginBtn/>
+      <Footer/>
+      <SignUpForm/>
+      <LoginForm/>
+      <DeleteAccCard/>
+      <SettingsCardL/>
+      <SettingsCardR/>
+      <UploadForm/>
+      <FriendChip/>
+      <Carousel/>
       </div>
+      
     );
   }
 }
