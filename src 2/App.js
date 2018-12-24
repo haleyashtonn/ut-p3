@@ -17,7 +17,7 @@ import DeleteAccCard from './components/cards/DeleteCard';
 import MyDropzone from './components/inputs/Dropzone';
 import UploadForm from './components/forms/UploadForm';
 import FriendChip from './components/buttons/FriendChip';
-import Carousel from './display/Carousel';
+import Carousel from './components/display/Carousel';
 
 class App extends Component {
   render() {

@@ -3,7 +3,7 @@ import React from 'react'
 function Footer(){
     return(
         <div>
-            <footer className="page-footer pink lighten-3">
+            <footer className="page-footer teal darken-5">
             <div className="container">
                 <div className="row">
                     <div className="col s5 l4 offset-l2">
@@ -35,18 +35,18 @@ function Footer(){
 
                         <ul id="ani-footer-links">
                             <li><a className="white-text text-lighten-3" href="/">Home</a></li>
-                           
+                            {/*{{#if aniId}}*/}
                             <li><a className="white-text text-lighten-3" href="/upload-photos">Compose</a></li>
-                            <li><a className="white-text text-lighten-3" href="/animals">Find Dates</a></li>
-                         
-                            <li><a className="white-text text-lighten-3" href="/meet-ani">PeopleConD</a></li>
+                            <li><a className="white-text text-lighten-3" href="/animals">Find Animals</a></li>
+                            {/*{{/if}}*/}
+                            <li><a className="white-text text-lighten-3" href="/meet-ani">Animals</a></li>
                             <li><a className="white-text text-lighten-3" href="/meet-ani-team">Meet Team</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <div className="footer-copyright pink lighten-2">
+            <div className="footer-copyright teal darken-4">
                 <div className="container">
                     <div className="center-align">
                         Copyright © 2018 by <a className="lime-text text-lighten-4" href="https://www.linkedin.com/" target="_blank">sohai9</a>, <a className="lime-text text-lighten-4" href="https://www.linkedin.com/in/christian-henry-27a7a7167/" target="_blank">Christian</a>, <a className="lime-text text-lighten-4" href="https://www.linkedin.com/in/pzamoranos/" target="_blank">Ping</a>, <a className="lime-text text-lighten-4" href="https://www.linkedin.com/in/kathryndunphy/" target="_blank">Haley</a>

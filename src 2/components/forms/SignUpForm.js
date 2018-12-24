@@ -11,7 +11,7 @@ function SignUpForm (){
                 <div className="col s12 m10 offset-m1 l7 offset-l4 xl5 offset-xl4">
                     <div className="row">
                         <div className="col s10 offset-s1">
-                            <h1>Love At First Bite</h1>
+                            <h1>Dogs with Friends</h1>
                             
                         </div>
 
