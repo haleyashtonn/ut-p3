@@ -4,38 +4,57 @@ import EmailInput from '../inputs/EmailInput';
 import UserNameInput from '../inputs/UsernameInput';
 import PasswordInput from '../inputs/PasswordInput';
 import SignUpBtn from '../buttons/SignUpBtn';
-function SignUpForm (){
+class SignUpForm extends React.Component{
+    state= {
+        username:"",
+        password:"",
+        email:"",
+        fullname:""
+    }
+    
+    handleChange = (event)=>{
+        const { name, value } = event.target;
+        this.setState({
+          [name]: value
+        });
+        console.log("Like an Adult")
+    }
+    handleSubmit= (event)=>{
+        this.setState({})
+    }
+    
+    render(){
     return(
         <div>
-            <div id="ani-signup" className="row ani-index ani-vertical-align-wrapper">
+            <div id="code-signup" className="row code-index code-vertical-align-wrapper">
                 <div className="col s12 m10 offset-m1 l7 offset-l4 xl5 offset-xl4">
                     <div className="row">
                         <div className="col s10 offset-s1">
-                            <h1>Love At First Bite</h1>
+                            <h1 id="logo">[Coding Connect]</h1>
                             
                         </div>
 
                         <div className="col s10 offset-s1">
-                            <form id="ani-form-signup" action="/api/signup" method="POST">
-                                <FullNameInput/>
+                            <form id="code-form-signup" action="/api/signup" method="POST">
+                                <FullNameInput onChange={this.handleChange} value ={this.state.fullname}/>
 
-                                <EmailInput/>
+                                <EmailInput onChange={this.handleChange} value ={this.state.email}/>
 
-                                <UserNameInput/>  
-                                <PasswordInput/>
+                                <UserNameInput onChange={this.handleChange} value ={this.state.username}/>  
+                                <PasswordInput onChange={this.handleChange} value ={this.state.pasword}/>
 
-                                <div className="ani-separator-2"></div>
+                                <div className="code-separator-2"></div>
 
-                                <SignUpBtn/>
+                                <SignUpBtn onClick={this.handelSubmit}/>
                             </form>
 
-                            <div className="ani-separator-2"></div>
+                            <div className="code-separator-2"></div>
                         </div>
 
                         <div className="col s10 offset-s1">
-                            <a href="javascript:displayLogin();">Have an account? Log in.</a>
+                            <a href="/" id ="link">Have an account? Log in.</a>
 
-                <div className="ani-separator-3"></div>
+                <div className="code-separator-3"></div>
             </div>
         </div>
     </div>
@@ -43,5 +62,6 @@ function SignUpForm (){
             
         </div>
     )
+}
 }
 export default SignUpForm

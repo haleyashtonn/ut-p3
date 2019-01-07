@@ -4,7 +4,7 @@ function PasswordInput(props){
         <div>
             <div className="input-field">
                 <label  className="blue-grey-text text-darken-2">Password</label>
-                <input type="text" name="password" id="ani-password" className="validate" required></input>
+                <input type="password" name="password" id="code-password" className="validate" required {...props}></input>
             </div>
         </div>
     )

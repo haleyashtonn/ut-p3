@@ -12,11 +12,11 @@ return(
                             <div className="col s12 l10 offset-l1">
                                 <h2>Update profile</h2>
 
-                                <div className="ani-separator-2"></div>
+                                <div className="code-separator-2"></div>
 
                                     <SettingsFormL/>
 
-                                <div className="ani-separator-3"></div>
+                                <div className="code-separator-3"></div>
                             </div>
                         </div>
                     </div>

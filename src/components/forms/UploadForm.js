@@ -10,15 +10,15 @@ function UploadForm(props){
                 <div className="col s12 m10 offset-m1 l8 offset-l2 xl6 offset-xl3">
                     <div className="card">
                         <div className="card-content">
-                            <div className="ani-separator-2"></div>
+                            <div className="code-separator-2"></div>
 
-                            <form action="/api/upload-photos" method="POST" className="dropzone" id="ani-form-upload-photos" encType="multipart/form-data">
+                            <form action="/api/upload-photos" method="POST" className="dropzone" id="code-form-upload-photos" encType="multipart/form-data">
                                     <GenString/>
-                                <div className="ani-separator-2"></div>
+                                <div className="code-separator-2"></div>
                                 <div className="fallback">
                                    <MyDropzone/>
                                 </div>
-                                <div className="ani-separator-2"></div>
+                                <div className="code-separator-2"></div>
                                 <UploadBtn/>
                             </form>
 
@@ -30,7 +30,7 @@ function UploadForm(props){
                         <button onclick="publish()" type="submit" className="btn-large waves-effect waves-light" title="Click to publish.">Publish</button>
                    </form> */}
                     
-                    <div className="ani-separator-3"></div>
+                    <div className="code-separator-3"></div>
                 </div>
             </div>
         </div>

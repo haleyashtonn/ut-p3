@@ -8,13 +8,13 @@ function DeleteAccCard(props){
                 <div className="card-content">
                     <div className="row">
                         <div className="col s12 l10 offset-l1">
-                            <h2>Delete Ani account</h2>
+                            <h2>Delete Account</h2>
 
-                            <div className="ani-separator-3"></div>
+                            <div className="code-separator-3"></div>
 
                             <DeleteForm/>
 
-                            <div className="ani-separator-3"></div>
+                            <div className="code-separator-3"></div>
                         </div>
                     </div>
                 </div>

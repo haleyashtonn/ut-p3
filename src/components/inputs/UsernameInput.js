@@ -4,7 +4,7 @@ function UserNameInput(props){
         <div>
             <div className="input-field">
                 <label  className="blue-grey-text text-darken-2">Username</label>
-                <input type="text" name="username" id="ani-username" className="validate" required></input>
+                <input type="text" name="username" id="code-username" className="validate" required {...props}></input>
             </div>
         </div>
     )
