@@ -2,11 +2,11 @@
 .App {
   text-align: center;
 }
-
-.App-logo {
-  codemation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+#preview{
+  overflow-wrap: normal
 }
+
+
 .card{
   background-color: #3885a8;
 }
@@ -16,7 +16,7 @@
 .btn-large{
   background-color: whitesmoke;
   color:#232188;
-  border-radius: 20em;
+  border-radius: 20%;
 }
 #editContainer{
   height: 60%;
@@ -30,13 +30,27 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
 }
+.pic{
+  background-image: url("./code_background.png");
+  z-index: 1;
+  filter: blur(.5px);
+  filter: grayscale(15%);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 #title{
   color:white;
+}
+nav{
+  background-color: #1976d2;
 }
 form{
   background-color: whitesmoke;
   padding:1em;
-  border-radius:5%;
+  border-bottom-left-radius:5%;
+  border-bottom-right-radius:5%;
 }
 .App-header {
   background-color: #282c34;
@@ -48,6 +62,7 @@ form{
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
 
 .App-link {
   color: #a7bec5;
@@ -112,13 +127,13 @@ footer a:hover {
   background-color: var(--color-white-transparent);
   border-radius   : 2px;
 }
-
+/* 
 .code-vertical-align-wrapper {
-  height         : 97vh;
+  height         : 100vh;
   display        : flex;
   justify-content: center;
   flex-direction : column;
-}
+} */
 
 .code-vertical-align-wrapper > .col {
   position: relative;
@@ -128,18 +143,16 @@ h1.brand-logo img {
   height: 100%;
 }
 #logo{
+  /* transform: translate(-50%, -50%); */
   text-align: center;
-  
-  color: #9fb0d6
-}
-#link{
-  background-color: #3885a8;
-  color:rgb(213, 213, 241);
-  height:2em;
-}
-.skills{
-  
+  background-color: #9fb0d6;
+  color: #3885a8;
   border-radius: 10%;
+}
+
+#code-resume{
+  margin-top: auto;
+  margin-bottom:auto;
 }
 /* .update{
   width: 30%;
@@ -170,9 +183,29 @@ h1.brand-logo img {
 .code-separator-3 {
   height: 2em;
 }
-#code-job{
-  position:fixed;
-  height         : 98vh;
-  justify-content: center;
-  flex-direction : column;
+#forms{
+  border: 2px solid #3885a8;
+  border-top-left-radius: 40%;
+  border-top-right-radius: 40%;
+  background-color: #185069;
+  width:100%;
+  
 }
+#form-label{
+  font-weight: 800;
+  color:#185069;
+}
+#imgFull{
+  width:40%;
+  height:40%;
+}
+.form-tab{
+  width:100%;
+  background-color: #185069;
+  border: 1px solid #185069;
+  color:antiquewhite
+}
+/* #edu{
+  background-color: #3885a8;
+  border: 2px solid #185069
+} */

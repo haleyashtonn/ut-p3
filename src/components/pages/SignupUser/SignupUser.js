@@ -7,7 +7,7 @@ class SignupUser extends React.Component{
 
     render(){
         return(
-            <div>
+            <div className = "pic">
                 <NavBar/>
                 <SignUpForm/>
                 <Footer/>

@@ -43,7 +43,7 @@ class LoginForm extends React.Component{
                     </div>
 
                     <div className="col s10 offset-s1">
-                        <a href="signup">Don't have an account? Sign up.</a>
+                        <a href="signup" id="logo">Don't have an account? Sign up.</a>
 
                         <div className="code-separator-3"></div>
                     </div>

@@ -37,6 +37,7 @@ function Footer(){
                             <li><a className="white-text text-lighten-3" href="/home">Home</a></li>
                            
                             <li><a className="white-text text-lighten-3" href="/settings">Settings</a></li>
+                            <li><a className="white-text text-lighten-3" href="/FindJobs">Find Jobs</a></li>
                             <li><a className="white-text text-lighten-3" href="/signup">Sign Up</a></li>
                          
                             <li><a className="white-text text-lighten-3" href="/logout">Logout</a></li>

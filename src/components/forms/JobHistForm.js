@@ -6,44 +6,37 @@ import GenString from '../inputs/TitleInput';
 import TextArea from '../inputs/TextArea';
 import EduForm from './EduForm';
 class AddJobCurrent extends React.Component {
-    state={
-        job:"",
-        jobtitle:"",
-        timewith:"",
-        duties:""
-    }
+
     handleChange = (event)=>{
-        const { name, value } = event.target;
-        this.setState({
-          [name]: value
-          
-        });
-        
-        console.log("Like an Adult")
+        const name = event.target.id
+        this.props.onformChange(event.target.value, name);
+        console.log("good")
     }
+   
     render(){
         
         return(
             <div>
-            <div id="code-job" className="row code-index code-vertical-align-wrapper">
+            <div id="add-job" className="row code-index code-vertical-align-wrapper">
                 <div className="col s12">
                     <div className="row">
                     
             <form id= "job" action="/api/addJob" method= "POST">
             <div className="col s12">
-      <ul className="tabs" id="forms">
-        <li className="tab col s4" id="eduForm" ><a href={this.props.EduForm}>Education</a></li>
-        <li className="tab col s4" onClick={ () => ReactDOM.render(<AddJobCurrent/>,document.getElementById('showhere'))}><a className="active" href="/AddJobCurrent">Work Exp</a></li>
-        <li className="tab col s4 "><a href="/Skills">Skills</a></li>
-        
-      </ul>
+     
     </div>
             <h1>Add Job</h1>
-            <GenString placeholder="ex. Google" type="text" name="job" onChange={this.handleChange} value={this.state.job}/>
-            <GenString placeholder="ex. Sr. Front-End Dev" type="text"name="jobtitle" onChange={this.handleChange} value={this.state.jobtitle}/>
-            <GenString placeholder="ex. 4" type="number"name="timewith" onChange={this.handleChange} value={this.state.timewith}/>
-            <TextArea placeholder="ex. what did you do there?" type="text"name="duties" onChange={this.handleChange} value={this.state.duties}/>
-           
+            <label id="form-label">Company:</label>
+            <GenString label ="Job"placeholder="ex. Google" type="text" id="job" onChange={this.handleChange} value={this.props.job}/>
+            <label id="form-label">Position:</label>
+            <GenString placeholder="ex. Sr. Front-End Dev" type="text" id="jobtitle" onChange={this.handleChange} value={this.props.jobtitle}/>
+            <label id="form-label">Years With:</label>
+            <GenString placeholder="ex. 4" type="number"id="timewith" onChange={this.handleChange} value={this.props.timewith}/>
+            <label id="form-label">Responsibilities:</label>
+            <TextArea placeholder="ex. what did you do there?" type="text"id="duties" onChange={this.handleChange} value={this.props.duties}/>
+            
+            <label id="form-label">Professional Links:</label>
+            <GenString placeholder="ex.https://github.com/JDoe1111 " type="url"id="links" onChange={this.handleChange} value={this.props.links}/>
             <div className="code-separator-2"></div>
             
             <PostBtn/>
@@ -53,7 +46,7 @@ class AddJobCurrent extends React.Component {
                         </div>
 
 
-                <div className="code-separator-3"></div>
+                
             </div>
         </div>
     </div>

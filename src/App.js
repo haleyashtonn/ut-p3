@@ -31,6 +31,7 @@ import CreateProfile from './components/pages/EditProfile/EditProfile';
 import FindJobs from './components/pages/FindJobs/FindJobs';
 import  MeetTeam  from './components/pages/MeetTeam/MeetTeam';
 import ViewProfile from './components/pages/ViewProfile/ViewProfile';
+import LinkForm from './components/forms/LinkForm';
 
 
 function App() {
@@ -49,6 +50,9 @@ function App() {
           <Route exact path ="/EduForm" component={EduForm}/>
           <Route exact path ="/AddJobCurrent" component={AddJobCurrent}/>
           <Route exact path ="/Skills" component={Skills}/>
+          <Route exact path ="/FindJobs" component={FindJobs}/>
+          <Route exact path ="/LinkForm" component={LinkForm}/>
+
 
 
           <Route component={FindJobs} />

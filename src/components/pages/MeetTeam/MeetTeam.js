@@ -3,7 +3,7 @@ import NavBar from '../Navbar';
 import Footer from '../Footer';
  function MeetTeam(){
 return(
-    <div>
+    <div className = "pic">
     <NavBar/>
     <h1>Meet Team Here</h1>
     <Footer/>

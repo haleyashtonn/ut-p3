@@ -17,6 +17,7 @@ class SettingsFormL extends React.Component{
             <div className="code-separator-2"></div>
             <EditBtn/>
         </form>
+        <div className="code-separator-3"></div>
         </div>
     )
 }

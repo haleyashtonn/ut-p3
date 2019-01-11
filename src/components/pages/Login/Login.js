@@ -6,7 +6,7 @@ import Footer from '../Footer';
 class Login extends React.Component{
     render(){
         return(
-            <div>
+            <div className = "pic">
                 <NavBar/>
                 <LoginForm/>
                 <Footer/>

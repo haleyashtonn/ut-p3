@@ -6,7 +6,7 @@ import EduForm from '../../forms/EduForm';
 class ViewProfile extends React.Component{
     render(){
         return(
-            <div>
+            <div className = "pic">
                 <NavBar/>
                 <EduForm/>
 

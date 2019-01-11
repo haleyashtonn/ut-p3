@@ -1,69 +1,34 @@
 import React from 'react';
-import UserNameInput from '../inputs/UsernameInput';
+import ImageBox from '../display/Image';
 
 
 class PreviewCard extends React.Component{
-state={
-    name: "John Doe",
-    school: "UT",
-    graduated: 2004,
-    degree: "B.S C.S.",
-    job: "hackplace",
-    title:"Jr Dev",
-    timeWith:10 +"months",
-    skills:"Html"
-    
-}
-
-HandleNameInput=()=>{
- this.setstate({ name: this.state.name });
-}
-HandleSchoolInput=()=>{
-    this.setstate({ school: this.state.name });
-}
-HandleNameInput=()=>{
-    this.setstate({ name: this.state.name });
-}
-HandleNameInput=()=>{
-    this.setstate({ name: this.state.name });
-}
-HandleNameInput=()=>{
-    this.setstate({ name: this.state.name });
-}
-HandleNameInput=()=>{
-    this.setstate({ name: this.state.name });
-}
-HandleNameInput=()=>{
-    this.setstate({ name: this.state.name });
-}
-HandleNameInput=()=>{
-    this.setstate({ name: this.state.name });
-}
-HandleNameInput=()=>{
-    this.setstate({ name: this.state.name });
-}
-HandleNameInput=()=>{
-    this.setstate({ name: this.state.name });
-}
 
 
-render(){
+render(props){
+    console.log(props)
     return(
         <div>
             
                 
-                    
-            <form id="code-resume">
+            <div className="code-separator-3"></div>        
+            <form id="preview">
+                <ImageBox src="https://images.pexels.com/photos/58997/pexels-photo-58997.jpeg?cs=srgb&dl=animal-corgi-dog-58997.jpg&fm=jpg"/>
                 <h4>Education</h4>
-                <h5>{this.state.school}</h5>
-                <div>{this.state.graduated}</div>
-                <div>{this.state.degree}</div>
+                <h5 id ="school" >{this.props.school}</h5>
+                <div id = "graduated">{this.props.graduated}</div>
+                <div id="degree">{this.props.degree}</div>
+                <div id="otherEdu">{this.props.otherEdu}</div>
+                <div id="awards">{this.props.awards}</div>
                 <h4>Work Experience</h4>
-                <h5>{this.state.job}</h5>
-                <h6>{this.state.title}</h6>
-                <div>{this.state.timeWith}</div>
+                <h5 id ="job">{this.props.job}</h5>
+                <h6 id ="jobtitle">{this.props.jobtitle}</h6>
+                <div id="time" >{this.props.timewith}</div>
+                <div id="duties">{this.props.duties}</div>
                 <h4>Skills</h4>
-                <div>{this.state.skills}</div>
+                <div id ="skills">{this.props.skills}</div>
+                <h4>Professional Links:</h4>
+                <div id="links">{this.props.links}</div>
 
             </form>
         </div>

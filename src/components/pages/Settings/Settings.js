@@ -10,14 +10,15 @@ import SettingsFormR from '../../forms/SettingsRight';
 class Settings extends React.Component{
     render(){
         return(
-            <div>
+            <div className = "pic">
                 <NavBar/>
                 <div className="code-separator-3"></div>
                 <div className= "row">
                     <div className= "col s12 m6" >
                         <SettingsFormL/>
                     </div>    
-                        
+                    
+                    
                     <div className= "col s12 m6" >
                         <SettingsFormR/>
                     </div>

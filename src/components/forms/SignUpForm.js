@@ -30,7 +30,7 @@ class SignUpForm extends React.Component{
                 <div className="col s12 m10 offset-m1 l7 offset-l4 xl5 offset-xl4">
                     <div className="row">
                         <div className="col s10 offset-s1">
-                            <h1 id="logo">[Coding Connect]</h1>
+                            <h1 id ="logo">[Coding Connect]</h1>
                             
                         </div>
 
@@ -52,7 +52,7 @@ class SignUpForm extends React.Component{
                         </div>
 
                         <div className="col s10 offset-s1">
-                            <a href="/" id ="link">Have an account? Log in.</a>
+                            <a href="/" id="logo">Have an account? Log in.</a>
 
                 <div className="code-separator-3"></div>
             </div>

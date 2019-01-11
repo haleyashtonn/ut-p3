@@ -5,8 +5,10 @@ import AddJobCurrent from './JobHistForm';
 import EduForm from './EduForm';
 
 class Skills extends React.Component{
-    state={
-        checked: []
+    handleCheck=(event)=>{
+        const name = event.target.id
+        this.props.onformCheck(event.target.value, name);
+        console.log("good")
     }
     render(){
         return(
@@ -15,21 +17,16 @@ class Skills extends React.Component{
                 <div className="col s12 ">
                     <div className="row">
                 
-                <form className= "skills" id="showhere">
-                <div class="col s12">
-      <ul class="tabs" id="forms">
-        <li className="tab col s4" id="eduForm"><a href="/EduForm">Education</a></li>
-        <li className="tab col s4" onClick={ () => ReactDOM.render(<AddJobCurrent/>,document.getElementById('showhere'))}><a class="active" href="/AddJobCurrent">Work Exp</a></li>
-        <li className="tab col s4 "><a href="/Skills">Skills</a></li>
-        
-      </ul>
+                <form className= "skills" >
+                <div className="col s12">
+     
     </div>
                 <h2>Skills</h2>
                 <div className ="row">
                     <div className="col s3">
                     <p>
                         <label>
-                            <input type="checkbox" className="filled-in"  />
+                            <input id = "HTML"type="checkbox" className="filled-in" checked={this.props.checked} onChange={this.handleCheck}/>
                             <span>HTML</span>
                         </label>
                     </p>
@@ -37,7 +34,7 @@ class Skills extends React.Component{
                     <div className="col s3">
                     <p>
                         <label>
-                            <input type="checkbox" className="filled-in"  />
+                            <input id ="CSS"type="checkbox" className="filled-in"  checked={this.props.checked} onChange={this.handleCheck}/>
                             <span>CSS</span>
                         </label>
                     </p>
@@ -45,7 +42,7 @@ class Skills extends React.Component{
                     <div className="col s3">
                     <p>
                         <label>
-                            <input type="checkbox" className="filled-in"  />
+                            <input id ="JavaScript"type="checkbox" className="filled-in" checked={this.props.checked} onChange={this.handleCheck}/>
                             <span>Javascript</span>
                         </label>
                     </p>
@@ -53,7 +50,7 @@ class Skills extends React.Component{
                     <div className="col s3">
                     <p>
                         <label>
-                            <input type="checkbox" className="filled-in"  />
+                            <input id ="Node"type="checkbox" className="filled-in" checked={this.props.checked} onChange={this.handleCheck}/>
                             <span>Node</span>
                         </label>
                     </p>
@@ -63,7 +60,7 @@ class Skills extends React.Component{
                     <div className="col s3">
                     <p>
                         <label>
-                            <input type="checkbox" className="filled-in"  />
+                            <input id ="SQL"type="checkbox" className="filled-in"  checked={this.props.checked} onChange={this.handleCheck}/>
                             <span>SQL</span>
                         </label>
                     </p>
@@ -71,7 +68,7 @@ class Skills extends React.Component{
                     <div className="col s3">
                     <p>
                         <label>
-                            <input type="checkbox" className="filled-in"  />
+                            <input id ="React"type="checkbox" className="filled-in" checked={this.props.checked}  onChange={this.handleCheck}/>
                             <span>React</span>
                         </label>
                     </p> 
@@ -79,7 +76,7 @@ class Skills extends React.Component{
                     <div className="col s3">
                     <p>
                         <label>
-                            <input type="checkbox" className="filled-in"  />
+                            <input id="NoSQL"type="checkbox" className="filled-in"  checked={this.props.checked} onChange={this.handleCheck}/>
                             <span>NO SQL</span>
                         </label>
                     </p>
@@ -87,7 +84,7 @@ class Skills extends React.Component{
                     <div className="col s3">
                     <p>
                         <label>
-                            <input type="checkbox" className="filled-in"  />
+                            <input id ="Ruby"type="checkbox" className="filled-in" checked={this.props.checked} onChange={this.handleCheck}/>
                             <span>Ruby</span>
                         </label>
                     </p> 
@@ -97,7 +94,7 @@ class Skills extends React.Component{
                     <div className="col s3">
                     <p>
                         <label>
-                            <input type="checkbox" className="filled-in"  />
+                            <input id ="PHP"type="checkbox" className="filled-in" checked={this.props.checked} onChange={this.handleCheck}/>
                             <span>PHP</span>
                         </label>
                     </p>
@@ -105,7 +102,7 @@ class Skills extends React.Component{
                     <div className="col s3">
                     <p>
                         <label>
-                            <input type="checkbox" className="filled-in"  />
+                            <input id ="Angular"type="checkbox" className="filled-in"  checked={this.props.checked} onChange={this.handleCheck}/>
                             <span>Angular</span>
                         </label>
                     </p>
@@ -113,7 +110,7 @@ class Skills extends React.Component{
                     <div className="col s3">
                     <p>
                         <label>
-                            <input type="checkbox" className="filled-in"  />
+                            <input id ="Java" type="checkbox" className="filled-in" checked={this.props.checked} onChange={this.handleCheck}/>
                             <span>Java</span>
                         </label>
                     </p>
@@ -121,8 +118,8 @@ class Skills extends React.Component{
                     <div className="col s3">
                     <p>
                         <label>
-                            <input type="checkbox" className="filled-in"  />
-                            <span>C++</span>
+                            <input id ="C#"type="checkbox" className="filled-in"  checked={this.props.checked} onChange={this.handleCheck}/>
+                            <span>C#</span>
                         </label>
                     </p>
                     </div> 
@@ -131,7 +128,7 @@ class Skills extends React.Component{
                     <div className="col s3">
                     <p>
                         <label>
-                            <input type="checkbox" className="filled-in"  />
+                            <input id ="NPM"type="checkbox" className="filled-in"  checked={this.props.checked} onChange={this.handleCheck}/>
                             <span>NPM</span>
                         </label>
                     </p>
@@ -139,7 +136,7 @@ class Skills extends React.Component{
                     <div className="col s3">
                     <p>
                         <label>
-                            <input type="checkbox" className="filled-in"  />
+                            <input id ="Bootstrap"type="checkbox" className="filled-in"  checked={this.props.checked} onChange={this.handleCheck}/>
                             <span>Bootstrap</span>
                         </label>
                     </p>
@@ -147,7 +144,7 @@ class Skills extends React.Component{
                     <div className="col s3">
                     <p>
                         <label>
-                            <input type="checkbox" className="filled-in"  />
+                            <input id ="Kotlin"type="checkbox" className="filled-in"  checked={this.props.checked} onChange={this.handleCheck}/>
                             <span>Kotlin</span>
                         </label>
                     </p>
@@ -155,7 +152,7 @@ class Skills extends React.Component{
                     <div className="col s3">
                     <p>
                         <label>
-                            <input type="checkbox" className="filled-in"  />
+                            <input id ="Swift"type="checkbox" className="filled-in"  checked={this.props.checked} onChange={this.handleCheck}/>
                             <span>Swift</span>
                         </label>
                     </p>
@@ -165,7 +162,7 @@ class Skills extends React.Component{
                     <div className="col s3">
                     <p>
                         <label>
-                            <input type="checkbox" className="filled-in"  />
+                            <input id ="Python"type="checkbox" className="filled-in"  checked={this.props.checked} onChange={this.handleCheck}/>
                             <span>Python</span>
                         </label>
                     </p>
@@ -173,7 +170,7 @@ class Skills extends React.Component{
                     <div className="col s3">
                     <p>
                         <label>
-                            <input type="checkbox" className="filled-in"  />
+                            <input id ="WordPress"type="checkbox" className="filled-in" checked={this.props.checked} onChange={this.handleCheck}/>
                             <span>Word Press</span>
                         </label>
                     </p>
@@ -181,7 +178,7 @@ class Skills extends React.Component{
                     <div className="col s3">
                     <p>
                         <label>
-                            <input type="checkbox" className="filled-in"  />
+                            <input id ="Yarn"type="checkbox" className="filled-in" checked={this.props.checked} onChange={this.handleCheck}/>
                             <span>Yarn</span>
                         </label>
                     </p>
@@ -189,19 +186,19 @@ class Skills extends React.Component{
                     <div className="col s3">
                     <p>
                         <label>
-                            <input type="checkbox" className="filled-in"  />
+                            <input id ="Git"type="checkbox" className="filled-in"  checked={this.props.checked} onChange={this.handleCheck}/>
                             <span>Git</span>
                         </label>
                     </p>
                     </div> 
                     </div>
-                    <div className="code-separator-3"></div>
+                    
                     <PostBtn/>
                      
                 </form>
-                <div className="code-separator-2"></div>
+                
                         </div>
-                <div className="code-separator-3"></div>
+                
                 </div>
                 </div>
                 </div>
