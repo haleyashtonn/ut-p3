@@ -19,12 +19,12 @@ if (process.env.NODE_ENV === "production") {
 }
 // MIDDLEWARE
 app.use(morgan("dev"));
-app.use(
-  bodyParser.urlencoded({
-    extended: false
-  })
-);
-app.use(bodyParser.json());
+// app.use(
+//   bodyParser.urlencoded({
+//     extended: false
+//   })
+// );
+// app.use(bodyParser.json());
 
 // Connect to the Mongo DB
 mongoose.connect(
