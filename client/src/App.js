@@ -17,6 +17,8 @@ import ViewProfile from './components/pages/ViewProfile/ViewProfile';
 import LinkForm from './components/forms/LinkForm';
 import UploadForm from './components/forms/UploadForm';
 
+import ErHand from './components/pages/Error/Error.Js';
+
 
 function App() {
   return (
@@ -37,9 +39,7 @@ function App() {
           <Route exact path ="/FindJobs" component={FindJobs}/>
           <Route exact path ="/LinkForm" component={LinkForm}/>
           <Route exact path ="/UploadForm" component={UploadForm}/>
-         
-
-
+   
           <Route component={FindJobs} />
         </Switch>
         

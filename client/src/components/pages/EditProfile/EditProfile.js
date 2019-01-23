@@ -76,7 +76,7 @@ checkedBox=(val,name)=>{
     console.log(val)
     let skillsArr={
             HTML:false,
-            CSS:true,
+            CSS:this.state.skills.Css,
             PHP:false,
             SQL:false,
             NoSQL:false,
@@ -102,44 +102,18 @@ checkedBox=(val,name)=>{
     console.log(name)
         
         console.log(skillsArr)
-    // if(skillsArr>0){
-    //     skillsArr.forEach()
-    //     for(let i=0;i<skillsArr.length;i++){
-    //         console.log(skillsArr[i])
-    //         if (skillsArr[i]===name){
-    //             skillsArr.
-    //             console.log(skillsArr)
-    //         }else{
-    //             skillsArr.push(name)
-    //             console.log(skillsArr)
-    //         }
-    //     }
-    // }
-    
-    
    
-    // let keys = Object.keys(skillsArr)
-    // let skillName=keys[name]
-    
-
-    // console.log(keys)
-    // console.log(skillName)
-    // for(let i=0;i<skillsArr.length;i++){
-    //     let keys = Object.keys(skillsArr[i])
-    //     console.log(keys)
-    //     console.log(val)
-    //     console.log([name])
 let skill =skillsArr[name]
    console.log(skill)
    let asset=[name]
    console.log(asset)
-   if (skill === false){
+   
     skill =val
     console.log(skill)
     console.log(skillsArr[name])
-    console.log(this.state.skills)
-    this.setState({skills:skillsArr})
-   }
+    console.log(skillsArr)
+    // this.setState({skills:skillsArr})
+   
         // this.setState({skill:val})
         // console.log("match")
     //  this.setState({
