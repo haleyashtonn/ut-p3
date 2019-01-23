@@ -1,12 +1,8 @@
 import React from 'react'
-
-import ReactDOM from "react"
-import FullNameInput from '../inputs/NameInput';
 import GenString from '../inputs/TitleInput';
 import TextArea from '../inputs/TextArea';
 import PostBtn from '../buttons/PostBtn';
-import AddJobCurrent from './JobHistForm';
-import Skills from './Skills';
+
  class EduForm extends React.Component{
     
 

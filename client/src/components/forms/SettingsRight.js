@@ -22,9 +22,9 @@ class SettingsFormR extends React.Component{
         <div>
             <form className="update" action="/api/update-password_{{coder.id}}?_method=PATCH" method="POST">
             <h2>Update password</h2>
-            <OldPassword onchange ={this.handleChange} value = {this.state.old}/>
-            <NewPassword onchange ={this.handleChange} value = {this.state.new1}/>
-            <NewPassword onchange ={this.handleChange} value = {this.state.new2}/>
+            <OldPassword onChange ={this.handleChange} value = {this.state.old}/>
+            <NewPassword onChange ={this.handleChange} name="new1" value = {this.state.new1}/>
+            <NewPassword onChange ={this.handleChange} name="new2" value = {this.state.new2}/>
             <div className="code-separator-2"></div>
             <EditBtn/>
             </form>

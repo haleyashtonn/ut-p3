@@ -15,6 +15,7 @@ class JobsForm extends React.Component{
                     <GenString placeholder="Austin, Tx" type="text" id="where" onChange={this.handleChange} value={this.props.where}/>
                     <label id="form-label">Job:</label>
                     <GenString placeholder="Web Developer" type="text" id="job" onChange={this.handleChange} value={this.props.job}/>
+                    
                 </form>
             </div>
         )

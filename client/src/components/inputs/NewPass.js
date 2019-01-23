@@ -5,7 +5,7 @@ function NewPassword(props){
         <div>
             <div className="input-field">
                 <label  id="form-label">New Password</label>
-                <input type="password" name="password_new" id="code-new-password" className="validate" placeholder="********" required {...props}></input>
+                <input type="password"  className="validate" placeholder="********" required {...props}></input>
             </div>
         </div>
     )

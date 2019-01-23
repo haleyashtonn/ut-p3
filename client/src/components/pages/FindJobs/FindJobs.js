@@ -2,6 +2,9 @@ import React from 'react';
 import NavBar from '../Navbar';
 import Footer from '../Footer';
 import JobsForm from '../../forms/JobsSearch';
+import axios from 'axios'
+
+
 
 class FindJobs extends React.Component {
     state={
@@ -9,6 +12,15 @@ class FindJobs extends React.Component {
         job:"",
         
     }
+
+
+    componentDidMount(){
+        axios.get('/api/findJobs').then((err,res)=>{
+            console.log(res)
+        })
+////url company, location, title
+    }
+    
     formChanged= (props, name)=>{
     
         this.setState({
@@ -25,8 +37,10 @@ class FindJobs extends React.Component {
                 <div className="row">
                 <div className="col s12 m10 l6 offset-l3">
                 <JobsForm onformChange={this.formChanged}/>
+                <button id ="findJobs" onClick= {this.searchJobs}>Find Jobs</button>
                 </div>
                 </div>
+
                 <Footer/>
             </div>
         )
