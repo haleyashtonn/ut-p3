@@ -40,14 +40,13 @@ app.use(
     saveUninitialized: false //required
   })
 );
-// Add routes, both API and view
-app.use(routes);
 
 // Passport
 app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
 
-
+// Add routes, both API and view
+app.use(routes);
 
 // Start the API server
 app.listen(PORT, function() {
