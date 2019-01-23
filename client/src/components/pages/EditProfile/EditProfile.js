@@ -1,17 +1,21 @@
 import React from 'react';
 import NavBar from '../Navbar';
 import Footer from '../Footer';
-import ReactDOM from "react"
-
 import AddJobCurrent from '../../forms/JobHistForm';
 import Skills from '../../forms/Skills';
 import EduForm from '../../forms/EduForm';
 import PreviewCard from '../../cards/ProPreviewCard';
 import LinkForm from '../../forms/LinkForm';
+import UploadForm from '../../forms/UploadForm';
 
 
 class CreateProfile extends React.Component{
     state={ 
+        user:"",
+        location:"",
+        userFullName:"",
+        url:"",
+        publicId:"",
         job:"",
         jobtitle:"",
         timewith:"",
@@ -23,9 +27,30 @@ class CreateProfile extends React.Component{
         awards:"",
         formName:"",
         links:[],
-        skills:[]
-        
+        skills:{
+            HTML:false,
+            CSS:true,
+            PHP:false,
+            SQL:false,
+            NoSQL:false,
+            NPM:false,  
+            Kotlin:false,
+            Swift:false,
+            Node:false,
+            Bootstrap:false,
+            Yarn:false,
+            Git:false,
+            Javascript:false,
+            React:false,
+            Angular:false,
+            Ruby:false,
+            Java:false,
+            Python:false,
+            Flutter:false,
+            WordPress:false
+    }
         }
+    
      
 formChanged= (props, name)=>{
     
@@ -36,17 +61,104 @@ formChanged= (props, name)=>{
     console.log("name")
 }
 handleTab=(event)=>{
+    console.log(event.target.className)
+    if(event.target.className === "form-tab"){
     const name=event.target.id;
    this.setState({formName: name})
     
     console.log(name)
     }
-checkedBox=(props,name)=>{
-    this.setState({
-        skills: this.state.skills +"   "+ [name]
-    })
-    console.log(props)
+    else{
+        console.log('dont switch')
+    }
+    }
+checkedBox=(val,name)=>{
+    console.log(val)
+    let skillsArr={
+            HTML:false,
+            CSS:true,
+            PHP:false,
+            SQL:false,
+            NoSQL:false,
+            NPM:false,  
+            Kotlin:false,
+            Swift:false,
+            Node:false,
+            Bootstrap:false,
+            Yarn:false,
+            Git:false,
+            Javascript:false,
+            React:false,
+            Angular:false,
+            Ruby:false,
+            Java:false,
+            Python:false,
+            Flutter:false,
+            WordPress:false
+    }
+
+    // add checked attribute to all options 
+    // write function based on that
     console.log(name)
+        
+        console.log(skillsArr)
+    // if(skillsArr>0){
+    //     skillsArr.forEach()
+    //     for(let i=0;i<skillsArr.length;i++){
+    //         console.log(skillsArr[i])
+    //         if (skillsArr[i]===name){
+    //             skillsArr.
+    //             console.log(skillsArr)
+    //         }else{
+    //             skillsArr.push(name)
+    //             console.log(skillsArr)
+    //         }
+    //     }
+    // }
+    
+    
+   
+    // let keys = Object.keys(skillsArr)
+    // let skillName=keys[name]
+    
+
+    // console.log(keys)
+    // console.log(skillName)
+    // for(let i=0;i<skillsArr.length;i++){
+    //     let keys = Object.keys(skillsArr[i])
+    //     console.log(keys)
+    //     console.log(val)
+    //     console.log([name])
+let skill =skillsArr[name]
+   console.log(skill)
+   let asset=[name]
+   console.log(asset)
+   if (skill === false){
+    skill =val
+    console.log(skill)
+    console.log(skillsArr[name])
+    console.log(this.state.skills)
+    this.setState({skills:skillsArr})
+   }
+        // this.setState({skill:val})
+        // console.log("match")
+    //  this.setState({
+    //     skills:[{[name]:true}]
+    // })
+//     console.log(this.state.skills)
+//     console.log(name)
+// }
+// else if(skillName===true){
+    // this.setState({
+    //     skills:{[name]:false}
+    //     })
+//}
+    
+}
+stateUpload= (link, pId)=>{
+    this.setState({url: link, publicId: pId})
+    console.log('last')
+    console.log(link)
 }
 
     
@@ -61,22 +173,29 @@ checkedBox=(props,name)=>{
                 <div id ="editContainer" className="row code-index ">
                 <div className="col s12 m6 l5 offset-l1">
                 <ul className="tabs" id="forms">
-        <li className= "tab col s3" ><button className="form-tab"id = "edu"name ="edu" onClick={this.handleTab}>Education</button></li>
-        
-        <li className="tab col s3" ><button className="form-tab"id = "job"name ="job" onClick={this.handleTab}>Work Exp</button></li>
+        <li className= "tab col s3" ><i className="form-tab"id = "edu"name ="edu" onClick={this.handleTab}>Education</i></li>
+        <li className= "tab col s2" ><i className="form-tab"id = "bio"name ="photo" onClick={this.handleTab}>Bio</i></li>
+        <li className="tab col s3" ><i className="form-tab"id = "job"name ="job" onClick={this.handleTab}>Work Exp.</i></li>
        
-        <li className="tab col s3 " ><button className="form-tab"id = "skills"name ="skills" onClick={this.handleTab}>Skills</button></li>
-        <li className="tab col s3 " ><button className="form-tab"id = "pLinks"name ="pLinks" onClick={this.handleTab}>Links</button></li>
+        <li className="tab col s2 " ><i className="form-tab"id = "skills"name ="skills" onClick={this.handleTab}>Skills</i></li>
+        <li className="tab col s2 " ><i className="form-tab"id = "pLinks"name ="pLinks" onClick={this.handleTab}>Links</i></li>
       </ul>
 
                 
-                {this.state.formName ==="job"?
-                <AddJobCurrent onformChange={this.formChanged}/>: 
+                {
+                this.state.formName==="job"?
+                <AddJobCurrent onformChange={this.formChanged} onAcceptPass={this.stateUpload}/>:
+                this.state.formName ==="bio"?
+                <UploadForm onAcceptPass={this.stateUpload} onformChange={this.formChanged}/>: 
                 this.state.formName ==="skills"? 
-                <Skills onformCheck={this.checkedBox}/>:
+                <Skills onformCheck={this.checkedBox}{...this.state.skills}/>:
                 this.state.formName ==="pLinks"? 
-                <LinkForm onformChange={this.formChanged}/>: 
-                <EduForm onformChange={this.formChanged}/>}
+                <LinkForm onformChange={this.formChanged}/>:
+                this.state.fromName ===""?
+                <EduForm onformChange={this.formChanged}/>:
+                <EduForm onformChange={this.formChanged}/>
+            
+                }
                 
                 </div>
                 

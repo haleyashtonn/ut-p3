@@ -1,17 +1,37 @@
 import React from 'react'
-
-class Carousel extends React.Component{
+import { Slider, Slide} from 'react-materialize'
+class MeetUs extends React.Component{
     render(){
         return(
-            <div className="carousel">
-                <div className="carousel-item center-align">
-                <a href="{{this.url_linkedin}}" target="_blank">
-                <h2> Name:</h2>
-                <img className="responsive-img" src="{{this.url_photo}}" alt="{{this.fullname}}"></img>
-                </a>
-                <p>Bio:</p>
-            </div>     
-    </div>
+<div>
+    
+            <Slider>
+            <Slide
+                src="http://lorempixel.com/580/250/nature/1"
+                title="Sohaib"
+                >
+                CTO
+            </Slide>
+            <Slide
+                src="http://lorempixel.com/580/250/nature/2"
+                title="Haley"
+                >
+                Head of Development
+            </Slide>
+            <Slide
+                src="http://lorempixel.com/580/250/nature/3"
+                title="Ping"
+                >
+                DB Systems and Structures
+            </Slide>
+            <Slide
+                src="https://res.cloudinary.com/dm2obdaq7/image/upload/v1547780054/dog/jqpydstk6tafe7da3lck.jpg"
+                title="Christian"
+                >
+                Design and Interaction
+            </Slide>
+            </Slider>
+</div>
         )
     }
-} export default Carousel
+} export default MeetUs

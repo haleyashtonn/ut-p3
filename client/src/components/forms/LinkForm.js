@@ -9,7 +9,7 @@ class LinkForm extends React.Component{
         console.log("good")
     }
    
-    render(props){
+    render(props){console.log(props)
         return(
             <div>
             <form>

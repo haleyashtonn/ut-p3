@@ -1,14 +1,14 @@
 import React from 'react';
 import NavBar from '../Navbar';
 import Footer from '../Footer';
-import EduForm from '../../forms/EduForm';
+import Profile from '../../cards/ProfileCard';
 
 class ViewProfile extends React.Component{
     render(){
         return(
             <div className = "pic">
                 <NavBar/>
-                <EduForm/>
+                <Profile/>
 
                 <Footer/>
             </div>

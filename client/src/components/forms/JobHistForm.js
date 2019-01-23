@@ -1,16 +1,25 @@
 import React from 'react'
-import ReactDOM from "react"
-import FullNameInput from '../inputs/NameInput';
 import PostBtn from '../buttons/PostBtn';
 import GenString from '../inputs/TitleInput';
 import TextArea from '../inputs/TextArea';
-import EduForm from './EduForm';
+
+
 class AddJobCurrent extends React.Component {
 
+    
+
     handleChange = (event)=>{
+        console.log(this.props)
         const name = event.target.id
         this.props.onformChange(event.target.value, name);
         console.log("good")
+    }
+    
+    handleUpload=(url, publicId)=>{
+        this.props.onAcceptPass(url, publicId)
+        console.log(this.props)
+        console.log(url)
+        
     }
    
     render(){
@@ -25,6 +34,7 @@ class AddJobCurrent extends React.Component {
             <div className="col s12">
      
     </div>
+
             <h1>Add Job</h1>
             <label id="form-label">Company:</label>
             <GenString label ="Job"placeholder="ex. Google" type="text" id="job" onChange={this.handleChange} value={this.props.job}/>
@@ -34,19 +44,13 @@ class AddJobCurrent extends React.Component {
             <GenString placeholder="ex. 4" type="number"id="timewith" onChange={this.handleChange} value={this.props.timewith}/>
             <label id="form-label">Responsibilities:</label>
             <TextArea placeholder="ex. what did you do there?" type="text"id="duties" onChange={this.handleChange} value={this.props.duties}/>
-            
-            <label id="form-label">Professional Links:</label>
-            <GenString placeholder="ex.https://github.com/JDoe1111 " type="url"id="links" onChange={this.handleChange} value={this.props.links}/>
             <div className="code-separator-2"></div>
             
             <PostBtn/>
             
             </form>
                             <div className="code-separator-2"></div>
-                        </div>
-
-
-                
+                        </div>    
             </div>
         </div>
     </div>
