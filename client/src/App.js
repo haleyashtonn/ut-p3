@@ -61,19 +61,21 @@ class App extends Component {
   }
 
   render() {
-return (
-<Router>
-<div>
-<Switch>
-<Route exact path="/" component={Login} />
-<Route exact path="/home" component={ViewProfile} />
-<Route exact path="/createprofile" component={CreateProfile} />
-<Route exact path="/settings" component={Settings} />
-<Route exact path="/signup" component={SignupUser} />
-{/* <Route exact path="/login" component={Login} /> */}
+    return (
+      <Router>
+        <div>
+          <Switch>
+            <Route exact path="/" component={Login} />
+            <Route exact path="/home" component={ViewProfile} />
+            <Route exact path="/createprofile" component={CreateProfile} />
+            <Route exact path="/settings" component={Settings} />
+            <Route exact path="/signup" component={SignupUser} />
+            {/* <Route exact path="/login" component={Login} /> */}
             <Route
               path="/login"
-              render={() => <LoginForm updateUser={this.updateUser} testProp="testProp"/>}
+              render={() => (
+                <LoginForm updateUser={this.updateUser} testProp="testProp" />
+              )}
             />
             <Route exact path="/meetteam" component={MeetTeam.EduForm} />
             <Route exact path="/EduForm" component={EduForm} />
