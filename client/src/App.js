@@ -19,17 +19,10 @@ import LinkForm from "./components/forms/LinkForm";
 import LoginForm from "./components/forms/LoginForm";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      loggedIn: false,
-      username: null
-    };
-
-    this.getUser = this.getUser.bind(this);
-    this.componentDidMount = this.componentDidMount.bind(this);
-    this.updateUser = this.updateUser.bind(this);
-  }
+  state = {
+    loggedIn: false,
+    username: null
+  };
 
   componentDidMount() {
     this.getUser();
@@ -77,7 +70,7 @@ class App extends Component {
                 <LoginForm updateUser={this.updateUser} testProp="testProp" />
               )}
             />
-            <Route exact path="/meetteam" component={MeetTeam.EduForm} />
+            <Route exact path="/meetteam" component={MeetTeam} />
             <Route exact path="/EduForm" component={EduForm} />
             <Route exact path="/AddJobCurrent" component={AddJobCurrent} />
             <Route exact path="/Skills" component={Skills} />

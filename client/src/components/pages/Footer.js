@@ -117,7 +117,7 @@ function Footer() {
               Copyright © 2018 by{" "}
               <a
                 className="lime-text text-lighten-4"
-                href="https://www.linkedin.com/"
+                href="https://www.linkedin.com/in/sohai9/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -135,7 +135,7 @@ function Footer() {
               ,{" "}
               <a
                 className="lime-text text-lighten-4"
-                href="https://www.linkedin.com/in/pzamoranos/"
+                href="https://www.linkedin.com/in/yenpingliu/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -144,7 +144,7 @@ function Footer() {
               ,{" "}
               <a
                 className="lime-text text-lighten-4"
-                href="https://www.linkedin.com/in/kathryndunphy/"
+                href="https://www.linkedin.com/in/haley-murawski/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
