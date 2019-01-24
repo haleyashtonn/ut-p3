@@ -17,6 +17,8 @@ import MeetTeam from "./components/pages/MeetTeam/MeetTeam";
 import ViewProfile from "./components/pages/ViewProfile/ViewProfile";
 import LinkForm from "./components/forms/LinkForm";
 import LoginForm from "./components/forms/LoginForm";
+import NavBar from "./components/pages/Navbar";
+import Footer from "./components/pages/Footer";
 
 class App extends Component {
   state = {
@@ -57,6 +59,7 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <NavBar {...this.state} />
           <Switch>
             <Route exact path="/" component={Login} />
             <Route exact path="/home" component={ViewProfile} />
@@ -79,6 +82,7 @@ class App extends Component {
 
             <Route component={FindJobs} />
           </Switch>
+          <Footer />
         </div>
       </Router>
     );
