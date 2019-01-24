@@ -17,6 +17,8 @@ import MeetTeam from "./components/pages/MeetTeam/MeetTeam";
 import ViewProfile from "./components/pages/ViewProfile/ViewProfile";
 import LinkForm from "./components/forms/LinkForm";
 import LoginForm from "./components/forms/LoginForm";
+import NavBar from "./components/pages/Navbar";
+import Footer from "./components/pages/Footer";
 
 class App extends Component {
   constructor() {
@@ -64,6 +66,7 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <NavBar {...this.state} />
           <Switch>
             <Route exact path="/" component={Login} />
             <Route exact path="/home" component={ViewProfile} />
@@ -77,7 +80,7 @@ class App extends Component {
                 <LoginForm updateUser={this.updateUser} testProp="testProp" />
               )}
             />
-            <Route exact path="/meetteam" component={MeetTeam.EduForm} />
+            <Route exact path="/meetteam" component={MeetTeam} />
             <Route exact path="/EduForm" component={EduForm} />
             <Route exact path="/AddJobCurrent" component={AddJobCurrent} />
             <Route exact path="/Skills" component={Skills} />
@@ -86,6 +89,7 @@ class App extends Component {
 
             <Route component={FindJobs} />
           </Switch>
+          <Footer />
         </div>
       </Router>
     );

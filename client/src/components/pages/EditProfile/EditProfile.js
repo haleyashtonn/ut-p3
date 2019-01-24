@@ -133,8 +133,6 @@ class CreateProfile extends React.Component {
   render() {
     return (
       <div className="pic">
-        <NavBar />
-
         <div className="code-separator-2" />
         <div id="editContainer" className="row code-index ">
           <div className="col s12 m6 l5 offset-l1">
@@ -217,8 +215,6 @@ class CreateProfile extends React.Component {
             <PreviewCard {...this.state} />
           </div>
         </div>
-
-        <Footer />
       </div>
     );
   }
