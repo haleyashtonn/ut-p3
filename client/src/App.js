@@ -17,7 +17,7 @@ import ViewProfile from './components/pages/ViewProfile/ViewProfile';
 import LinkForm from './components/forms/LinkForm';
 import UploadForm from './components/forms/UploadForm';
 
-import ErHand from './components/pages/Error/Error.Js';
+
 
 
 function App() {

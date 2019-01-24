@@ -65,7 +65,7 @@ handleUpload=(url, publicId)=>{
                 <div className="col s12 ">
                     <div className="row">
                         <div className="form-upload">
-                            <div className="code-separator-2"></div>
+                            
 
                             <form >
                                 <div name= "upload">

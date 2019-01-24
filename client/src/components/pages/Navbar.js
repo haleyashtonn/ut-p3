@@ -12,7 +12,7 @@ class NavBar extends React.Component{
                 <nav>
                     <div className="nav-wrapper cyan darken-1">
                         <a href="/home" id="title">[Coding Connect]</a>
-                        <div classname="right hide-on-med-and-up">
+                        <div className="right hide-on-med-and-up">
                         <Dropdown trigger={
                             <Button className="dropbutton"><Icon>dehaze</Icon></Button>
                         } >
@@ -32,7 +32,7 @@ class NavBar extends React.Component{
                             <li><a className="code-drop-menu" href="/home">Home<i className="material-icons right"></i></a></li>
                             <li className="cyan darken-3"><a className="code-drop-menu" href="/FindJobs">Find Jobs<i className="material-icons right"></i></a></li>
                             <li><a className="code-drop-menu" href="/createprofile">Edit Profile<i className="material-icons right"></i></a></li>
-                            <li><a className="code-drop-menu dropdown-button" href="#"data-activates="code-dropdown-writer"><i className="material-icons right"></i></a></li>
+                            
                         </ul>
                     </div>
                 </nav>

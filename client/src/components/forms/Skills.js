@@ -5,17 +5,22 @@ import PostBtn from '../buttons/PostBtn';
 
 class Skills extends React.Component{
     handleCheck=(event)=>{
+        let these =[]
+        if(event.target.val=== false){
+these.push(event.target.id)
+console.log("skills:"+these)
+        }
         console.log(this.props.HTML)
         const name = event.target.id
         const val = event.target.checked
         this.props.onformCheck(val, name);
-        console.log(event.target.checked)
+        // console.log(event.target.checked)
     }
     render(){
         return(
             <div>
                 <div id="add-skills" className="row code-index code-vertical-align-wrapper">
-                <div className="col s12 ">
+                <div className="col s12  ">
                     <div className="row">
                 
                 <form className= "skills" >

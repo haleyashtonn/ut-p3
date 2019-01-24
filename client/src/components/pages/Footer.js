@@ -12,19 +12,19 @@ function Footer(){
                         <ul id="code-footer-social">
                             <div className="row">
                                 <div className="col s3 l2">
-                                    <li><a className="white-text text-lighten-3" href="https://github.com/sohai9/Project-2" target="_blank" rel="noopener noreferrer" title="Follow Us on GitHub!"><i className="fa fa-github-square" aria-hidden="true"></i></a></li>
+                                    <li className="white-text text-lighten-3" href="https://github.com/sohai9/Project-2" target="_blank" rel="noopener noreferrer" title="Follow Us on GitHub!"><i className="fa fa-github-square" aria-hidden="true"></i></li>
                                 </div>
                                 <div className="col s3 l2">
-                                    <li><a className="white-text text-lighten-3" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" title="Follow Us on Facebook!"><i className="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                                    <li className="white-text text-lighten-3" href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" title="Follow Us on Facebook!"><i className="fa fa-facebook-square" aria-hidden="true"></i></li>
                                 </div>
                                 <div className="col s3 l2">
-                                    <li><a className="white-text text-lighten-3" href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" title="Follow Us on LinkedIn!"><i className="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                                    <li className="white-text text-lighten-3" href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" title="Follow Us on LinkedIn!"><i className="fa fa-linkedin-square" aria-hidden="true"></i></li>
                                 </div>
                                 <div className="col s3 l2">
-                                    <li><a className="white-text text-lighten-3" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" title="Follow Us on Instagram!"><i className="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li className="white-text text-lighten-3" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" title="Follow Us on Instagram!"><i className="fa fa-instagram" aria-hidden="true"></i></li>
                                 </div>
                                 <div className="col s3 l2">
-                                    <li><a className="white-text text-lighten-3" href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" title="Follow Us on Twitter!"><i className="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                                    <li className="white-text text-lighten-3" href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" title="Follow Us on Twitter!"><i className="fa fa-twitter-square" aria-hidden="true"></i></li>
                                 </div>
                             </div>
                         </ul>

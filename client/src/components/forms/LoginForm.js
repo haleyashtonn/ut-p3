@@ -19,11 +19,11 @@ class LoginForm extends React.Component{
     render(){
     return(
         <div className="row">
-        <div id="code-login" className="row code-index code-vertical-align-wrapper" className ="login">
+        <div id="code-login" className="row code-index code-vertical-align-wrapper login">
             <div className="col s12 m10 offset-m1 l7 offset-l4 xl5 offset-xl4">
             
                 <div className="row">
-                    <div className="col s10 offset-s1" className ="login">
+                    <div className="col s10 offset-s1 login">
                         <h1 id = "logo">[Coding Connect]</h1>
                     
                     </div>
