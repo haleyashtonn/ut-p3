@@ -73,7 +73,9 @@ class App extends Component {
             {/* <Route exact path="/login" component={Login} /> */}
             <Route
               path="/login"
-              render={() => <LoginForm updateUser={this.updateUser} testProp="testProp"/>}
+              render={() => (
+                <LoginForm updateUser={this.updateUser} testProp="testProp" />
+              )}
             />
             <Route exact path="/meetteam" component={MeetTeam.EduForm} />
             <Route exact path="/EduForm" component={EduForm} />
