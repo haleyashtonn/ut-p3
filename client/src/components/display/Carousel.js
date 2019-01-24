@@ -21,12 +21,14 @@ class MeetUs extends React.Component{
             <Slide
                 src="http://lorempixel.com/580/250/nature/3"
                 title="Ping"
+                placement="left"
                 >
                 DB Systems and Structures
             </Slide>
             <Slide
-                src="https://res.cloudinary.com/dm2obdaq7/image/upload/v1547780054/dog/jqpydstk6tafe7da3lck.jpg"
+                src="https://res.cloudinary.com/dm2obdaq7/image/upload/v1547612052/dog/owjo5lnj9zacpoibbtzk.jpg"
                 title="Christian"
+                placement="right"
                 >
                 Design and Interaction
             </Slide>

@@ -15,7 +15,8 @@ class FindJobs extends React.Component {
 
 
     componentDidMount(){
-        axios.get('/api/findJobs').then((err,res)=>{
+        axios.get('https://jobs.github.com/positions?description=python&location=new+york').then((err,res)=>{
+            if (err) {console.log(err)}
             console.log(res)
         })
 ////url company, location, title
