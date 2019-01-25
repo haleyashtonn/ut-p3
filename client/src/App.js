@@ -80,7 +80,7 @@ class App extends Component {
             <Route exact path="/FindJobs" component={FindJobs} />
             <Route exact path="/LinkForm" component={LinkForm} />
 
-            <Route component={FindJobs} />
+            <Route component={Login} />
           </Switch>
           <Footer />
         </div>

@@ -97,7 +97,7 @@ function Footer() {
                 </li>
 
                 <li>
-                  <a className="white-text text-lighten-3" href="/logout">
+                  <a className="white-text text-lighten-3" href="/user/logout">
                     Logout
                   </a>
                 </li>

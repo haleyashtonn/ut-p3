@@ -28,6 +28,9 @@ class SignUpForm extends React.Component {
     event.preventDefault();
     if (this.state.username === "" || this.state.password === "") {
       console.log("invalid input");
+      this.setState({
+        signupError: "Username and password must be filled out!"
+      });
       return;
     }
 
@@ -105,7 +108,7 @@ class SignUpForm extends React.Component {
                 </div>
 
                 <div className="col s10 offset-s1">
-                  <a href="/" id="logo">
+                  <a href="/login" id="logo">
                     Have an account? Log in.
                   </a>
 

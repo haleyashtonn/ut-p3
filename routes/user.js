@@ -48,6 +48,17 @@ router.post(
   }
 );
 
+router.get("/logout", (req, res) => {
+  console.log("logging out, printing req.user:");
+  console.log(req.user);
+  if (req.user) {
+    req.logout();
+    res.send({ msg: "logging out" });
+  } else {
+    res.send({ msg: "no user to log out" });
+  }
+});
+
 router.get("/", (req, res, next) => {
   console.log("===== user!!======");
   console.log(req.user);
@@ -58,13 +69,14 @@ router.get("/", (req, res, next) => {
   }
 });
 
-router.post("/logout", (req, res) => {
-  if (req.user) {
-    req.logout();
-    res.send({ msg: "logging out" });
-  } else {
-    res.send({ msg: "no user to log out" });
-  }
-});
+// router.get("/", (req, res, next) => {
+//     console.log("in / get");
+//     res.json({ user: null });
+// })
+
+// router.get("/logout", (req, res, next) => {
+//     console.log("in /logout get");
+//     res.json({ user: "logout" });
+// })
 
 module.exports = router;
