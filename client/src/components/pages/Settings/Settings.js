@@ -1,6 +1,4 @@
 import React from "react";
-import NavBar from "../Navbar";
-import Footer from "../Footer";
 import DeleteAccCard from "../../cards/DeleteCard";
 import SettingsFormL from "../../forms/SettingsLeft";
 import SettingsFormR from "../../forms/SettingsRight";

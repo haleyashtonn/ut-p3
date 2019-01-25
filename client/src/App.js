@@ -9,7 +9,6 @@ import EduForm from "./components/forms/EduForm";
 import Login from "./components/pages/Login/Login";
 import SignupUser from "./components/pages/SignupUser/SignupUser";
 import Settings from "./components/pages/Settings/Settings";
-
 import Skills from "./components/forms/Skills";
 import CreateProfile from "./components/pages/EditProfile/EditProfile";
 import FindJobs from "./components/pages/FindJobs/FindJobs";
@@ -24,7 +23,7 @@ class App extends Component {
   state = {
     loggedIn: false,
     username: null,
-    updateUser: this.updateUser
+    updateUser: this.updateUser // does this work with spread operator?
   };
 
   componentDidMount() {

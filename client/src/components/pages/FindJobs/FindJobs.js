@@ -1,6 +1,4 @@
 import React from "react";
-import NavBar from "../Navbar";
-import Footer from "../Footer";
 import JobsForm from "../../forms/JobsSearch";
 import axios from "axios";
 

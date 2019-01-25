@@ -3,7 +3,6 @@ import UserNameInput from "../inputs/UsernameInput";
 import PasswordInput from "../inputs/PasswordInput";
 import LoginBtn from "../buttons/LoginBtn";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
 
 class LoginForm extends React.Component {
   state = {
@@ -37,9 +36,9 @@ class LoginForm extends React.Component {
             username: response.data.username
           });
           // update the state to redirect to home
-          this.setState({
-            redirectTo: "/"
-          });
+          // this.setState({
+          //   redirectTo: "/"
+          // });
         }
       })
       .catch(error => {
