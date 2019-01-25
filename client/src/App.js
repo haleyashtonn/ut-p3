@@ -23,18 +23,19 @@ import Footer from "./components/pages/Footer";
 class App extends Component {
   state = {
     loggedIn: false,
-    username: null
+    username: null,
+    updateUser: this.updateUser
   };
 
   componentDidMount() {
     this.getUser();
   }
 
-  updateUser(userObject) {
+  updateUser = userObject => {
     this.setState(userObject);
-  }
+  };
 
-  getUser() {
+  getUser = () => {
     axios.get("/user/").then(response => {
       console.log("Get user response: ");
       console.log(response.data);
@@ -53,15 +54,23 @@ class App extends Component {
         });
       }
     });
-  }
+  };
 
   render() {
+    let renderHome;
+    if (this.state.loggedIn) {
+      console.log(this.state);
+      renderHome = <ViewProfile {...this.state} />;
+    } else {
+      renderHome = <LoginForm updateUser={this.updateUser} />;
+    }
+
     return (
       <Router>
         <div>
           <NavBar {...this.state} />
           <Switch>
-            <Route exact path="/" component={Login} />
+            <Route exact path="/" render={() => renderHome} />
             <Route exact path="/home" component={ViewProfile} />
             <Route exact path="/createprofile" component={CreateProfile} />
             <Route exact path="/settings" component={Settings} />
@@ -69,9 +78,7 @@ class App extends Component {
             {/* <Route exact path="/login" component={Login} /> */}
             <Route
               path="/login"
-              render={() => (
-                <LoginForm updateUser={this.updateUser} testProp="testProp" />
-              )}
+              render={() => <LoginForm updateUser={this.updateUser} />}
             />
             <Route exact path="/meetteam" component={MeetTeam} />
             <Route exact path="/EduForm" component={EduForm} />
@@ -82,7 +89,7 @@ class App extends Component {
 
             <Route component={Login} />
           </Switch>
-          <Footer />
+          <Footer updateUser={this.updateUser} />
         </div>
       </Router>
     );
