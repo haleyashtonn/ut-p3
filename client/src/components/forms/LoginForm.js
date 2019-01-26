@@ -3,11 +3,13 @@ import UserNameInput from "../inputs/UsernameInput";
 import PasswordInput from "../inputs/PasswordInput";
 import LoginBtn from "../buttons/LoginBtn";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 class LoginForm extends React.Component {
   state = {
     username: "",
-    password: ""
+    password: "",
+    redirectTo: null
   };
 
   handleChange = event => {
@@ -36,9 +38,9 @@ class LoginForm extends React.Component {
             username: response.data.username
           });
           // update the state to redirect to home
-          // this.setState({
-          //   redirectTo: "/"
-          // });
+          this.setState({
+            redirectTo: "/"
+          });
         }
       })
       .catch(error => {
@@ -48,49 +50,53 @@ class LoginForm extends React.Component {
   };
 
   render() {
-    return (
-      <div className="row">
-        <div
-          id="code-login"
-          className="row code-index code-vertical-align-wrapper login"
-        >
-          <div className="col s12 m10 offset-m1 l7 offset-l4 xl5 offset-xl4">
-            <div className="row">
-              <div className="col s10 offset-s1 login">
-                <h1 id="logo">[Coding Connect]</h1>
+    if (this.state.redirectTo) {
+      return <Redirect to={{ pathname: this.state.redirectTo }} />;
+    } else {
+      return (
+        <div className="row">
+          <div
+            id="code-login"
+            className="row code-index code-vertical-align-wrapper login"
+          >
+            <div className="col s12 m10 offset-m1 l7 offset-l4 xl5 offset-xl4">
+              <div className="row">
+                <div className="col s10 offset-s1 login">
+                  <h1 id="logo">[Coding Connect]</h1>
+                </div>
               </div>
-            </div>
-            <div className="col s10 offset-s1">
-              <form id="code-form-login">
-                <UserNameInput
-                  onChange={this.handleChange}
-                  value={this.state.username}
-                />
+              <div className="col s10 offset-s1">
+                <form id="code-form-login">
+                  <UserNameInput
+                    onChange={this.handleChange}
+                    value={this.state.username}
+                  />
 
-                <PasswordInput
-                  onChange={this.handleChange}
-                  value={this.state.password}
-                />
+                  <PasswordInput
+                    onChange={this.handleChange}
+                    value={this.state.password}
+                  />
+
+                  <div className="code-separator-2" />
+
+                  <LoginBtn onClick={this.handleSubmit} />
+                </form>
 
                 <div className="code-separator-2" />
+              </div>
 
-                <LoginBtn onClick={this.handleSubmit} />
-              </form>
+              <div className="col s10 offset-s1">
+                <a href="signup" id="logo">
+                  Don't have an account? Sign up.
+                </a>
 
-              <div className="code-separator-2" />
-            </div>
-
-            <div className="col s10 offset-s1">
-              <a href="signup" id="logo">
-                Don't have an account? Sign up.
-              </a>
-
-              <div className="code-separator-3" />
+                <div className="code-separator-3" />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 export default LoginForm;

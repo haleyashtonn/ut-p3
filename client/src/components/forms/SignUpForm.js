@@ -48,7 +48,7 @@ class SignUpForm extends React.Component {
           console.log("successful signup");
           this.setState({
             //redirect to login page
-            redirectTo: "/login"
+            redirectTo: "/"
           });
         } else {
           console.log("username already taken");

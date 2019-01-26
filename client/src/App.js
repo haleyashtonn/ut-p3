@@ -43,7 +43,8 @@ class App extends Component {
 
         this.setState({
           loggedIn: true,
-          username: response.data.user.username
+          username: response.data.user.username,
+          user: response.data.user
         });
       } else {
         console.log("Get user: no user");
@@ -56,6 +57,7 @@ class App extends Component {
   };
 
   render() {
+    // Conditionally rendering homepage based on loggedIn state
     let renderHome;
     if (this.state.loggedIn) {
       console.log(this.state);
@@ -74,7 +76,6 @@ class App extends Component {
             <Route exact path="/createprofile" component={CreateProfile} />
             <Route exact path="/settings" component={Settings} />
             <Route exact path="/signup" component={SignupUser} />
-            {/* <Route exact path="/login" component={Login} /> */}
             <Route
               path="/login"
               render={() => <LoginForm updateUser={this.updateUser} />}
