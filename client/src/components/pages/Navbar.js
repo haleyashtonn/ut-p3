@@ -8,7 +8,7 @@ class NavBar extends React.Component {
           <div>
             <nav>
               <div className="nav-wrapper cyan darken-1">
-                <a href="/" id="title">
+                <a href="/" class="brand-logo" id="title">
                   [Coding Connect]
                 </a>
                 <div className="right hide-on-med-and-up">
@@ -38,7 +38,7 @@ class NavBar extends React.Component {
                       <i className="material-icons right" />
                     </a>
                   </li>
-                  <li className="cyan darken-3">
+                  <li>
                     <a className="code-drop-menu" href="/FindJobs">
                       Find Jobs
                       <i className="material-icons right" />

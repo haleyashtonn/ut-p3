@@ -1,35 +1,32 @@
-
 .App {
   text-align: center;
 }
 /* overflow options */
-#preview{
+#preview {
   overflow-wrap: normal;
 }
-#proPage{
+#proPage {
   overflow-wrap: normal;
 }
-.textbox{
+.textbox {
   overflow-wrap: break-word;
 }
 
-
-.card{
+.card {
   background-color: #3885a8;
 }
-.login{
+.login {
   background-color: #3885a8;
 }
-.btn-large{
+.btn-large {
   background-color: whitesmoke;
-  color:#232188;
+  color: #232188;
   border-radius: 20%;
 }
-#editContainer{
+#editContainer {
   height: 60%;
 }
-body{
-  
+body {
   filter: blur(0px);
   -webkit-filter: blur(0px);
   height: 100%;
@@ -37,28 +34,27 @@ body{
   background-repeat: no-repeat;
   background-size: cover;
 }
-.pic{
+.pic {
   background-image: url("./code_background.png");
   z-index: 1;
-  filter: blur(.5px);
+  filter: blur(0.5px);
   filter: grayscale(15%);
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-#title{
-  color:white;
+#title {
+  color: white;
 }
-nav{
+nav {
   background-color: #1976d2;
-  
 }
-form{
+form {
   background-color: whitesmoke;
-  padding:1em;
-  border-bottom-left-radius:5%;
-  border-bottom-right-radius:5%;
+  padding: 1em;
+  border-bottom-left-radius: 5%;
+  border-bottom-right-radius: 5%;
 }
 .App-header {
   background-color: #282c34;
@@ -70,7 +66,6 @@ form{
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
 
 .App-link {
   color: #a7bec5;
@@ -85,19 +80,23 @@ form{
   }
 }
 
-
-nav, nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons, nav .button-collapse i {
-  height     : var(--height-nav);
+nav,
+nav i,
+nav [class^="mdi-"],
+nav [class*="mdi-"],
+nav i.material-icons,
+nav .button-collapse i {
+  height: var(--height-nav);
   line-height: var(--height-nav);
 }
 
 nav .brand-logo {
-  font-family   : var(--font-highlight);
-  font-size     : 1.05em;
-  height        : 1.4em;
+  font-family: "Cousine", monospace;
+  font-size: 1.25em;
+  height: 1.4em;
   letter-spacing: 0.04em;
-  top           : 0.15em;
-  margin-left   : 1em;
+  top: 0.15em;
+  margin-left: 1em;
 }
 
 /* Couldn't fix the logo. Need to come back */
@@ -106,7 +105,7 @@ nav .brand-logo img {
 }
 
 nav .code-drop-menu {
-  font-size     : 0.75em;
+  font-size: 0.75em;
   letter-spacing: 0.01em;
 }
 
@@ -120,8 +119,8 @@ footer a:hover {
 }
 
 #code-footer-social li {
-  font-size    : 1.6em;
-  float        : left;
+  font-size: 1.6em;
+  float: left;
   padding-right: 0.9em;
 }
 
@@ -129,11 +128,11 @@ footer a:hover {
   font-size: 0.75em;
 }
 
-
 /* Signup, Login */
-#code-signup > .col, #code-login > .col {
+#code-signup > .col,
+#code-login > .col {
   background-color: var(--color-white-transparent);
-  border-radius   : 2px;
+  border-radius: 2px;
 }
 /* 
 .code-vertical-align-wrapper {
@@ -145,25 +144,24 @@ footer a:hover {
 
 .code-vertical-align-wrapper > .col {
   position: relative;
-  top     : calc(-1 * var(--height-nav));
+  top: calc(-1 * var(--height-nav));
 }
 h1.brand-logo img {
   height: 100%;
 }
-#logo{
+#logo {
   /* transform: translate(-50%, -50%); */
   text-align: center;
   background-color: #9fb0d6;
   color: #3885a8;
   border-radius: 10%;
 }
-.dropbutton{
-  background-color:#5890aa;
+.dropbutton {
+  background-color: #5890aa;
 }
-
-#code-resume{
+#code-resume {
   margin-top: auto;
-  margin-bottom:auto;
+  margin-bottom: auto;
 }
 /* .update{
   width: 30%;
@@ -194,29 +192,27 @@ h1.brand-logo img {
 .code-separator-3 {
   height: 2em;
 }
-#forms{
+#forms {
   border: 2px solid #3885a8;
   border-top-left-radius: 40%;
   border-top-right-radius: 40%;
   background-color: #185069;
-  width:100%;
-  
+  width: 100%;
 }
-#form-label{
+#form-label {
   font-weight: 800;
-  color:#185069;
+  color: #185069;
 }
-#imgFull{
-  width:40%;
-  height:40%;
+#imgFull {
+  width: 40%;
+  height: 40%;
   border-radius: 30%;
-  
 }
-.form-tab{
-  width:100%;
+.form-tab {
+  width: 100%;
   background-color: #185069;
   border: 1px solid #185069;
-  color:antiquewhite
+  color: antiquewhite;
 }
 /* #edu{
   background-color: #3885a8;
