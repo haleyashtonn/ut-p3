@@ -8,7 +8,7 @@ class NavBar extends React.Component {
           <div>
             <nav>
               <div className="nav-wrapper cyan darken-1">
-                <a href="/home" id="title">
+                <a href="/" id="title">
                   [Coding Connect]
                 </a>
                 <div className="right hide-on-med-and-up">
@@ -34,17 +34,20 @@ class NavBar extends React.Component {
                 <ul className="right hide-on-med-and-down" id="code-desktop">
                   <li>
                     <a className="code-drop-menu" href="/home">
-                      Home<i className="material-icons right" />
+                      Home
+                      <i className="material-icons right" />
                     </a>
                   </li>
                   <li className="cyan darken-3">
                     <a className="code-drop-menu" href="/FindJobs">
-                      Find Jobs<i className="material-icons right" />
+                      Find Jobs
+                      <i className="material-icons right" />
                     </a>
                   </li>
                   <li>
                     <a className="code-drop-menu" href="/createprofile">
-                      Edit Profile<i className="material-icons right" />
+                      Edit Profile
+                      <i className="material-icons right" />
                     </a>
                   </li>
                 </ul>

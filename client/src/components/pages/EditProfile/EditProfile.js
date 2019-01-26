@@ -1,6 +1,4 @@
 import React from "react";
-import NavBar from "../Navbar";
-import Footer from "../Footer";
 import AddJobCurrent from "../../forms/JobHistForm";
 import Skills from "../../forms/Skills";
 import EduForm from "../../forms/EduForm";

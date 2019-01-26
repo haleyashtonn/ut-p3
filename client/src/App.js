@@ -9,7 +9,6 @@ import EduForm from "./components/forms/EduForm";
 import Login from "./components/pages/Login/Login";
 import SignupUser from "./components/pages/SignupUser/SignupUser";
 import Settings from "./components/pages/Settings/Settings";
-
 import Skills from "./components/forms/Skills";
 import CreateProfile from "./components/pages/EditProfile/EditProfile";
 import FindJobs from "./components/pages/FindJobs/FindJobs";
@@ -23,18 +22,19 @@ import Footer from "./components/pages/Footer";
 class App extends Component {
   state = {
     loggedIn: false,
-    username: null
+    username: null,
+    updateUser: this.updateUser // does this work with spread operator?
   };
 
   componentDidMount() {
     this.getUser();
   }
 
-  updateUser(userObject) {
+  updateUser = userObject => {
     this.setState(userObject);
-  }
+  };
 
-  getUser() {
+  getUser = () => {
     axios.get("/user/").then(response => {
       console.log("Get user response: ");
       console.log(response.data);
@@ -43,7 +43,8 @@ class App extends Component {
 
         this.setState({
           loggedIn: true,
-          username: response.data.user.username
+          username: response.data.user.username,
+          user: response.data.user
         });
       } else {
         console.log("Get user: no user");
@@ -53,25 +54,31 @@ class App extends Component {
         });
       }
     });
-  }
+  };
 
   render() {
+    // Conditionally rendering homepage based on loggedIn state
+    let renderHome;
+    if (this.state.loggedIn) {
+      console.log(this.state);
+      renderHome = <ViewProfile {...this.state} />;
+    } else {
+      renderHome = <LoginForm updateUser={this.updateUser} />;
+    }
+
     return (
       <Router>
         <div>
           <NavBar {...this.state} />
           <Switch>
-            <Route exact path="/" component={Login} />
+            <Route exact path="/" render={() => renderHome} />
             <Route exact path="/home" component={ViewProfile} />
             <Route exact path="/createprofile" component={CreateProfile} />
             <Route exact path="/settings" component={Settings} />
             <Route exact path="/signup" component={SignupUser} />
-            {/* <Route exact path="/login" component={Login} /> */}
             <Route
               path="/login"
-              render={() => (
-                <LoginForm updateUser={this.updateUser} testProp="testProp" />
-              )}
+              render={() => <LoginForm updateUser={this.updateUser} />}
             />
             <Route exact path="/meetteam" component={MeetTeam} />
             <Route exact path="/EduForm" component={EduForm} />
@@ -80,9 +87,9 @@ class App extends Component {
             <Route exact path="/FindJobs" component={FindJobs} />
             <Route exact path="/LinkForm" component={LinkForm} />
 
-            <Route component={FindJobs} />
+            <Route component={Login} />
           </Switch>
-          <Footer />
+          <Footer updateUser={this.updateUser} />
         </div>
       </Router>
     );

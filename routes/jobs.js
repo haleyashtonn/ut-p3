@@ -9,8 +9,8 @@ router.get("/", (req, res, next) => {
       "https://jobs.github.com/positions.json?description=python&location=new+york"
     )
     .then(response => {
-      console.log("sending JSON response");
-      console.log(response.data);
+      console.log("jobs.js: sending JSON response");
+      // console.log(response.data);
       res.json(response.data);
     });
 });
