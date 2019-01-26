@@ -8,7 +8,7 @@ class NavBar extends React.Component {
           <div>
             <nav>
               <div className="nav-wrapper cyan darken-1">
-                <a href="/" class="brand-logo" id="title">
+                <a href="/" id="title">
                   [Coding Connect]
                 </a>
                 <div className="right hide-on-med-and-up">
