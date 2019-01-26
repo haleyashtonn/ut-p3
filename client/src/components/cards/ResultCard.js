@@ -19,7 +19,7 @@ class Results extends Component {
 
   render() {
     const result = this.props;
-    console.log(this.props.jobs);
+    // console.log(this.props.jobs);
     // if(this.props.length>0){
     // const posting=result.map(
     //     (res)=><div>{res[i].title}</div>

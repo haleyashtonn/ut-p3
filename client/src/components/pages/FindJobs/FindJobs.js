@@ -11,29 +11,34 @@ class SearchJobs extends React.Component {
   };
 
   searchJobs = () => {
-    axios.get("/jobs", { params: this.state }).then((res, err) => {
-      const postings = [];
-      if (err) {
-        console.log(err);
-      } else if (res) {
-        for (let i = 0; i < res.data.length; i++) {
-          postings.push({
-            title: res.data[i].title,
-            company: res.data[i].company,
-            url: res.data[i].url,
-            location: res.data[i].location
-          });
-        }
-        // postings.push(res.data)
-        console.log(res);
-        let result = res.data;
+    axios
+      .get("/jobs", {
+        params: { where: this.state.where, job: this.state.job }
+      })
+      .then((res, err) => {
+        // const postings = [];
+        console.log(res.data);
+        if (err) {
+          console.log(err);
+        } else if (res) {
+          // for (let i = 0; i < res.data.length; i++) {
+          //   postings.push({
+          //     title: res.data[i].title,
+          //     company: res.data[i].company,
+          //     url: res.data[i].url,
+          //     location: res.data[i].location
+          //   });
+          // }
+          // postings.push(res.data)
+          // console.log(postings);
+          let result = res.data;
 
-        this.setState({
-          results: postings
-        });
-        console.log(this.state);
-      }
-    });
+          this.setState({
+            results: result
+          });
+          // console.log(this.state);
+        }
+      });
   };
 
   formChanged = (props, name) => {
@@ -54,7 +59,7 @@ class SearchJobs extends React.Component {
             <button
               id="findJobs"
               onClick={this.searchJobs}
-              onSubmit={this.showRes}
+              // onSubmit={this.showRes}
             >
               Find Jobs
             </button>
