@@ -5,7 +5,8 @@ import EduForm from "../../forms/EduForm";
 import PreviewCard from "../../cards/ProPreviewCard";
 import LinkForm from "../../forms/LinkForm";
 import UploadForm from "../../forms/UploadForm";
-
+import { Button } from "react-materialize";
+import Axios from "axios";
 class CreateProfile extends React.Component {
   state = {
     user: "",
@@ -47,13 +48,40 @@ class CreateProfile extends React.Component {
       WordPress: false
     }
   };
-
+  submitProfile = () => {
+    const payload = {
+      school: this.state.school,
+      degree: this.state.degree,
+      gradyear: this.state.graduated,
+      otheredu: this.state.otherEdu,
+      awards: this.state.awards,
+      skills: this.state.skills,
+      job: this.state.job,
+      jobtitle: this.state.jobtitle,
+      timewith: this.state.timewith,
+      duties: this.state.duties,
+      links: this.state.links,
+      publicId: this.state.publicId,
+      location: this.state.location
+    };
+    Axios.post("/user/:id", payload)
+      .then(response => {
+        console.log("login response: ");
+        console.log(response);
+        if (response.status === 200) {
+        }
+      })
+      .catch(error => {
+        console.log("login error: ");
+        console.log(error);
+      });
+  };
   formChanged = (props, name) => {
     this.setState({
       [name]: props
     });
-    console.log(props, name);
-    console.log("name");
+    // console.log(props, name);
+    // console.log("name");
   };
   handleTab = event => {
     console.log(event.target.className);
@@ -208,6 +236,7 @@ class CreateProfile extends React.Component {
               <EduForm onformChange={this.formChanged} />
             )}
           </div>
+          <Button onClick={this.submitProfile}>Submit Profile</Button>
 
           <div id="code-resume" className="col s12 m6 l4 offset-l1">
             <PreviewCard {...this.state} />
