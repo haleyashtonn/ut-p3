@@ -6,6 +6,7 @@ import PreviewCard from "../../cards/ProPreviewCard";
 import LinkForm from "../../forms/LinkForm";
 import UploadForm from "../../forms/UploadForm";
 import { Button } from "react-materialize";
+import Axios from "axios";
 class CreateProfile extends React.Component {
   state = {
     user: "",
@@ -63,13 +64,24 @@ class CreateProfile extends React.Component {
       publicId: this.state.publicId,
       location: this.state.location
     };
+    Axios.post("/user/:id", payload)
+      .then(response => {
+        console.log("login response: ");
+        console.log(response);
+        if (response.status === 200) {
+        }
+      })
+      .catch(error => {
+        console.log("login error: ");
+        console.log(error);
+      });
   };
   formChanged = (props, name) => {
     this.setState({
       [name]: props
     });
-    console.log(props, name);
-    console.log("name");
+    // console.log(props, name);
+    // console.log("name");
   };
   handleTab = event => {
     console.log(event.target.className);

@@ -4,15 +4,15 @@ const axios = require("axios");
 
 router.get("/", (req, res, next) => {
   console.log("===== jobs!!======");
-  axios
-    .get(
-      "https://jobs.github.com/positions.json?description=python&location=new+york"
-    )
-    .then(response => {
-      console.log("jobs.js: sending JSON response");
-      // console.log(response.data);
-      res.json(response.data);
-    });
+
+  let search = `https://jobs.github.com/positions.json?title=${
+    req.query.job
+  }&location=${req.query.where}`;
+  axios.get(search).then(response => {
+    console.log("jobs.js: sending JSON response");
+    console.log(response.data);
+    res.json(response.data);
+  });
 });
 
 module.exports = router;
