@@ -5,6 +5,7 @@ class ViewProfile extends React.Component {
   render() {
     return (
       <div className="pic">
+        {" "}
         <Profile />
       </div>
     );
