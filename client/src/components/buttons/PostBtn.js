@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
 
-function PostBtn(props){
-    return(
-    <button type="submit" className="btn-large waves-effect waves-light">Post</button>
-    )
-
+function PostBtn(props) {
+  return (
+    <button id="post" className="btn-large waves-effect waves-light">
+      Post
+    </button>
+  );
 }
-export default PostBtn
+export default PostBtn;

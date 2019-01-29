@@ -6,10 +6,11 @@ import PreviewCard from "../../cards/ProPreviewCard";
 import LinkForm from "../../forms/LinkForm";
 import UploadForm from "../../forms/UploadForm";
 import { Button } from "react-materialize";
-import Axios from "axios";
+import axios from "axios";
 class CreateProfile extends React.Component {
   state = {
-    user: "",
+    username: "",
+    userId: "",
     location: "",
     userFullName: "",
     url: "",
@@ -48,31 +49,78 @@ class CreateProfile extends React.Component {
       WordPress: false
     }
   };
-  submitProfile = () => {
-    const payload = {
-      school: this.state.school,
-      degree: this.state.degree,
-      gradyear: this.state.graduated,
-      otheredu: this.state.otherEdu,
-      awards: this.state.awards,
-      skills: this.state.skills,
-      job: this.state.job,
-      jobtitle: this.state.jobtitle,
-      timewith: this.state.timewith,
-      duties: this.state.duties,
-      links: this.state.links,
-      publicId: this.state.publicId,
-      location: this.state.location
-    };
-    Axios.post("/user/:id", payload)
+  componentDidMount = () => {
+    console.log("update edit" + this.props._id);
+    axios
+      .get("/user", { id: this.props.id })
       .then(response => {
-        console.log("login response: ");
         console.log(response);
         if (response.status === 200) {
+          const userN = response.data.user.username;
+          const id = response.data.user._id;
+          const name = response.data.user.fullname;
+          console.log(response.data.user.fullname);
+          axios.get("/education");
+          this.setState({
+            username: userN,
+            userId: id,
+            userFullName: name
+          });
+
+          console.log(this.state);
         }
       })
       .catch(error => {
-        console.log("login error: ");
+        console.log(error);
+      });
+  };
+  submitProfile = () => {
+    // const payload = {
+    //   username: this.state.username,
+    //   password: this.state.password,
+    //   school: this.state.school,
+    //   degree: this.state.degree,
+    //   gradyear: this.state.graduated,
+    //   otheredu: this.state.otherEdu,
+    //   awards: this.state.awards,
+    //   skills: this.state.skills,
+    //   job: this.state.job,
+    //   jobtitle: this.state.jobtitle,
+    //   timewith: this.state.timewith,
+    //   duties: this.state.duties,
+    //   links: this.state.links,
+    //   publicId: this.state.publicId,
+    //   location: this.state.location
+    // };
+    console.log(this.props._id);
+    axios
+      .post("/education/", {
+        userId: this.props._id,
+        username: this.state.username,
+        password: this.state.password,
+        school: this.state.school,
+        degree: this.state.degree,
+        gradyear: this.state.graduated,
+        otheredu: this.state.otherEdu,
+        awards: this.state.awards,
+        skills: this.state.skills,
+        job: this.state.job,
+        jobtitle: this.state.jobtitle,
+        timewith: this.state.timewith,
+        duties: this.state.duties,
+        links: this.state.links,
+        publicId: this.state.publicId,
+        location: this.state.location
+      })
+      .then(response => {
+        console.log("profile_response", response);
+        if (response) {
+          console.log(response.data.education[0]);
+          const res = response.data.education[0];
+          this.setState({ school: res.school });
+        }
+      })
+      .catch(error => {
         console.log(error);
       });
   };
@@ -231,15 +279,17 @@ class CreateProfile extends React.Component {
             ) : this.state.formName === "pLinks" ? (
               <LinkForm onformChange={this.formChanged} />
             ) : this.state.fromName === "" ? (
-              <EduForm onformChange={this.formChanged} />
+              <EduForm onformChange={this.formChanged} {...this.state} />
             ) : (
-              <EduForm onformChange={this.formChanged} />
+              <EduForm onformChange={this.formChanged} {...this.props} />
             )}
           </div>
-          <Button onClick={this.submitProfile}>Submit Profile</Button>
+          <Button href="/profile" onClick={this.submitProfile}>
+            Submit Profile
+          </Button>
 
           <div id="code-resume" className="col s12 m6 l4 offset-l1">
-            <PreviewCard {...this.state} />
+            <PreviewCard {...this.state} {...this.props} />
           </div>
         </div>
       </div>
