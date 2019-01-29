@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
 const passport = require("../passport");
-router.post("/:id", (req, res) => {});
 
 router.post("/", (req, res) => {
   console.log("user signup");
@@ -67,9 +66,20 @@ router.get("/", (req, res, next) => {
   console.log(req.user);
   if (req.user) {
     res.json({ user: req.user });
+    // User.findOne({ _id: req.user._id })
+    // .populate("education").then(function(data){
+
+    //   console.log("edu"+data)
+    //   res.json(user)
+    // })
   } else {
     res.json({ user: null });
   }
+});
+
+router.get("/user/:id", (req, res) => {
+  console.log("route user id hit");
+  console.log(req);
 });
 
 module.exports = router;

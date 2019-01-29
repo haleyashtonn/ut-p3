@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Button from "react-materialize/lib/Button";
 
 class Results extends Component {
   //     componentDidUpdate(){
@@ -29,7 +30,18 @@ class Results extends Component {
       <form>
         <h6>Results:</h6>
         {this.props.jobs.map(element => (
-          <div>{element.title}</div>
+          <div>
+            <h5>{element.company}</h5>
+            <h6>{element.title}</h6>
+            <p>
+              <strong>{element.location}</strong>
+            </p>
+            <a type="url" href={element.url} className="link">
+              {element.url}
+            </a>
+            <Button>Save</Button>
+            <hr />
+          </div>
         ))}
         {/* {this.showRes()} */}
       </form>

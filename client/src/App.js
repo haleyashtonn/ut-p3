@@ -72,8 +72,13 @@ class App extends Component {
           <NavBar {...this.state} />
           <Switch>
             <Route exact path="/" render={() => renderHome} />
-            <Route exact path="/home" component={ViewProfile} />
-            <Route exact path="/createprofile" component={CreateProfile} />
+            {/* <Route  path="/home" 
+                    render={(props) => <ViewProfile  {...this.state.user}/>}
+            /> */}
+            <Route
+              path="/createprofile"
+              render={props => <CreateProfile {...this.state.user} />}
+            />
             <Route exact path="/settings" component={Settings} />
             <Route exact path="/signup" component={SignupUser} />
             <Route
