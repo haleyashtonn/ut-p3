@@ -1,5 +1,7 @@
 import React from "react";
 import JobsForm from "../../forms/JobsSearch";
+import PostBtn from "../../buttons/PostBtn";
+
 import axios from "axios";
 import Results from "../../cards/ResultCard";
 
