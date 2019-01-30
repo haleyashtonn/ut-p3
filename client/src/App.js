@@ -18,6 +18,7 @@ import LinkForm from "./components/forms/LinkForm";
 import LoginForm from "./components/forms/LoginForm";
 import NavBar from "./components/pages/Navbar";
 import Footer from "./components/pages/Footer";
+import PasswordInput from "./components/inputs/PasswordInput";
 
 class App extends Component {
   state = {
@@ -39,11 +40,14 @@ class App extends Component {
       console.log(response.data);
       if (response.data.user) {
         console.log("Get User: There is a user saved in the server session: ");
+        // Get rid of password hash in object
+        const { password, ...withoutPW } = response.data.user;
 
         this.setState({
           loggedIn: true,
-          username: response.data.user.username,
-          user: response.data.user
+          // username: response.data.user.username,
+          // user: response.data.user
+          ...withoutPW
         });
       } else {
         console.log("Get user: no user");
@@ -81,7 +85,7 @@ class App extends Component {
     let renderHome;
     if (this.state.loggedIn) {
       console.log(this.state);
-      renderHome = <ViewProfile {...this.state} />;
+      renderHome = <ViewProfile {...this.state} getUser={this.getUser} />;
     } else {
       renderHome = <LoginForm updateUser={this.updateUser} />;
     }
@@ -94,7 +98,7 @@ class App extends Component {
             <Route exact path="/" render={() => renderHome} />
             <Route
               path="/createprofile"
-              render={props => <CreateProfile {...this.state.user} />}
+              render={() => <CreateProfile {...this.state} />}
             />
             {/* <Route exact path="/settings" component={Settings} /> */}
             <Route exact path="/signup" component={SignupUser} />

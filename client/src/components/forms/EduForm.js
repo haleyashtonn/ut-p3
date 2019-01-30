@@ -87,7 +87,7 @@ class EduForm extends React.Component {
                 />
 
                 <div className="code-separator-2" />
-                <Button href="/user" onSubmit={this.handleClick} />
+                {/* <Button href="/user" onSubmit={this.handleClick} /> */}
               </form>
               <div className="code-separator-1" />
             </div>

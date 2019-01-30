@@ -24,8 +24,16 @@ class Profile extends React.Component {
     skills: []
   };
   componentDidMount = () => {
+    this.props.getUser();
     console.log("profileCard props", this.props);
     this.setState({ ...this.props });
+    if (this.props.education.length === 0) {
+      console.log("empty education array");
+    } else {
+      this.setState({ ...this.props.education[0] });
+    }
+    // console.log("profileCard props", this.props);
+    // this.setState({ ...this.props });
     // if (this.props._id === undefined) {
     //   console.log(this.props);
     // } else {
@@ -66,7 +74,7 @@ class Profile extends React.Component {
           <form id="proPage">
             <ImageBox publicId={this.state.publicId} />
             <h6 id={this.state.id}>
-              <b>{this.state.fullname}</b>
+              <b>{this.props.fullname}</b>
             </h6>
             <p id="email">{this.state.email}</p>
             <h6>{this.state.location}</h6>
