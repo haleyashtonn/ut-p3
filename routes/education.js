@@ -5,18 +5,15 @@ const Education = require("../models/education");
 const User = require("../models/user");
 
 router.post("/", (req, res) => {
-  console.log("route hit" + req.body);
-  const dbEDU = req.body;
+  console.log("Post profile route hit" + req.body);
   // res.json(req.body);
 
-  console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@\n" + dbEDU);
-  console.log("BodyMovin" + req.userId);
   User.findOneAndUpdate(
     {
-      _id: dbEDU.userId
+      _id: req.body.userId
     },
     {
-      education: dbEDU
+      education: req.body.education
     },
     {
       returnNewDocument: true

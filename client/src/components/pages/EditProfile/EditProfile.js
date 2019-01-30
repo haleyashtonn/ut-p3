@@ -7,6 +7,8 @@ import LinkForm from "../../forms/LinkForm";
 import UploadForm from "../../forms/UploadForm";
 import { Button } from "react-materialize";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
+
 class CreateProfile extends React.Component {
   state = {
     username: "",
@@ -47,7 +49,8 @@ class CreateProfile extends React.Component {
       Python: false,
       Flutter: false,
       WordPress: false
-    }
+    },
+    redirectTo: null
   };
   componentDidMount = () => {
     console.log("update edit" + this.props._id);
@@ -96,21 +99,21 @@ class CreateProfile extends React.Component {
     axios
       .post("/education/", {
         userId: this.props._id,
-        username: this.state.username,
-        password: this.state.password,
-        school: this.state.school,
-        degree: this.state.degree,
-        gradyear: this.state.graduated,
-        otheredu: this.state.otherEdu,
-        awards: this.state.awards,
-        skills: this.state.skills,
-        job: this.state.job,
-        jobtitle: this.state.jobtitle,
-        timewith: this.state.timewith,
-        duties: this.state.duties,
-        links: this.state.links,
-        publicId: this.state.publicId,
-        location: this.state.location
+        education: {
+          school: this.state.school,
+          degree: this.state.degree,
+          gradyear: this.state.graduated,
+          otheredu: this.state.otherEdu,
+          awards: this.state.awards,
+          skills: this.state.skills,
+          job: this.state.job,
+          jobtitle: this.state.jobtitle,
+          timewith: this.state.timewith,
+          duties: this.state.duties,
+          links: this.state.links,
+          publicId: this.state.publicId,
+          location: this.state.location
+        }
       })
       .then(response => {
         console.log("profile_response", response);
@@ -119,6 +122,9 @@ class CreateProfile extends React.Component {
           const res = response.data.education[0];
           this.setState({ school: res.school });
         }
+        this.setState({
+          redirectTo: "/"
+        });
       })
       .catch(error => {
         console.log(error);
@@ -205,95 +211,99 @@ class CreateProfile extends React.Component {
   };
 
   render() {
-    return (
-      <div className="pic">
-        <div className="code-separator-2" />
-        <div id="editContainer" className="row code-index ">
-          <div className="col s12 m6 l5 offset-l1">
-            <ul className="tabs" id="forms">
-              <li className="tab col s3">
-                <i
-                  className="form-tab"
-                  id="edu"
-                  name="edu"
-                  onClick={this.handleTab}
-                >
-                  Education
-                </i>
-              </li>
-              <li className="tab col s2">
-                <i
-                  className="form-tab"
-                  id="bio"
-                  name="photo"
-                  onClick={this.handleTab}
-                >
-                  Bio
-                </i>
-              </li>
-              <li className="tab col s3">
-                <i
-                  className="form-tab"
-                  id="job"
-                  name="job"
-                  onClick={this.handleTab}
-                >
-                  Work Exp.
-                </i>
-              </li>
+    if (this.state.redirectTo) {
+      return <Redirect to={{ pathname: this.state.redirectTo }} />;
+    } else {
+      return (
+        <div className="pic">
+          <div className="code-separator-2" />
+          <div id="editContainer" className="row code-index ">
+            <div className="col s12 m6 l5 offset-l1">
+              <ul className="tabs" id="forms">
+                <li className="tab col s3">
+                  <i
+                    className="form-tab"
+                    id="edu"
+                    name="edu"
+                    onClick={this.handleTab}
+                  >
+                    Education
+                  </i>
+                </li>
+                <li className="tab col s2">
+                  <i
+                    className="form-tab"
+                    id="bio"
+                    name="photo"
+                    onClick={this.handleTab}
+                  >
+                    Bio
+                  </i>
+                </li>
+                <li className="tab col s3">
+                  <i
+                    className="form-tab"
+                    id="job"
+                    name="job"
+                    onClick={this.handleTab}
+                  >
+                    Work Exp.
+                  </i>
+                </li>
 
-              <li className="tab col s2 ">
-                <i
-                  className="form-tab"
-                  id="skills"
-                  name="skills"
-                  onClick={this.handleTab}
-                >
-                  Skills
-                </i>
-              </li>
-              <li className="tab col s2 ">
-                <i
-                  className="form-tab"
-                  id="pLinks"
-                  name="pLinks"
-                  onClick={this.handleTab}
-                >
-                  Links
-                </i>
-              </li>
-            </ul>
+                <li className="tab col s2 ">
+                  <i
+                    className="form-tab"
+                    id="skills"
+                    name="skills"
+                    onClick={this.handleTab}
+                  >
+                    Skills
+                  </i>
+                </li>
+                <li className="tab col s2 ">
+                  <i
+                    className="form-tab"
+                    id="pLinks"
+                    name="pLinks"
+                    onClick={this.handleTab}
+                  >
+                    Links
+                  </i>
+                </li>
+              </ul>
 
-            {this.state.formName === "job" ? (
-              <AddJobCurrent
-                onformChange={this.formChanged}
-                onAcceptPass={this.stateUpload}
-              />
-            ) : this.state.formName === "bio" ? (
-              <UploadForm
-                onAcceptPass={this.stateUpload}
-                onformChange={this.formChanged}
-              />
-            ) : this.state.formName === "skills" ? (
-              <Skills onformCheck={this.checkedBox} {...this.state.skills} />
-            ) : this.state.formName === "pLinks" ? (
-              <LinkForm onformChange={this.formChanged} />
-            ) : this.state.fromName === "" ? (
-              <EduForm onformChange={this.formChanged} {...this.state} />
-            ) : (
-              <EduForm onformChange={this.formChanged} {...this.props} />
-            )}
-          </div>
-          <Button href="/profile" onClick={this.submitProfile}>
-            Submit Profile
-          </Button>
+              {this.state.formName === "job" ? (
+                <AddJobCurrent
+                  onformChange={this.formChanged}
+                  onAcceptPass={this.stateUpload}
+                />
+              ) : this.state.formName === "bio" ? (
+                <UploadForm
+                  onAcceptPass={this.stateUpload}
+                  onformChange={this.formChanged}
+                />
+              ) : this.state.formName === "skills" ? (
+                <Skills onformCheck={this.checkedBox} {...this.state.skills} />
+              ) : this.state.formName === "pLinks" ? (
+                <LinkForm onformChange={this.formChanged} />
+              ) : this.state.fromName === "" ? (
+                <EduForm onformChange={this.formChanged} {...this.state} />
+              ) : (
+                <EduForm onformChange={this.formChanged} {...this.props} />
+              )}
+            </div>
+            <Button href="/profile" onClick={this.submitProfile}>
+              Submit Profile
+            </Button>
 
-          <div id="code-resume" className="col s12 m6 l4 offset-l1">
-            <PreviewCard {...this.state} {...this.props} />
+            <div id="code-resume" className="col s12 m6 l4 offset-l1">
+              <PreviewCard {...this.state} {...this.props} />
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 export default CreateProfile;
