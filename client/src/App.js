@@ -22,8 +22,7 @@ import Footer from "./components/pages/Footer";
 class App extends Component {
   state = {
     loggedIn: false,
-    username: null,
-    updateUser: this.updateUser // does this work with spread operator?
+    username: null
   };
 
   componentDidMount() {
@@ -56,6 +55,27 @@ class App extends Component {
     });
   };
 
+  handleLogout = event => {
+    event.preventDefault();
+    console.log("logging out");
+    axios
+      .post("/user/logout")
+      .then(response => {
+        console.log(response.data);
+        if (response.status === 200) {
+          this.setState({
+            loggedIn: false,
+            username: null,
+            user: null
+          });
+        }
+      })
+      .catch(error => {
+        console.log("Logout error:");
+        console.log(error);
+      });
+  };
+
   render() {
     // Conditionally rendering homepage based on loggedIn state
     let renderHome;
@@ -69,17 +89,14 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <NavBar {...this.state} />
+          <NavBar {...this.state} handleLogout={this.handleLogout} />
           <Switch>
             <Route exact path="/" render={() => renderHome} />
-            {/* <Route  path="/home" 
-                    render={(props) => <ViewProfile  {...this.state.user}/>}
-            /> */}
             <Route
               path="/createprofile"
               render={props => <CreateProfile {...this.state.user} />}
             />
-            <Route exact path="/settings" component={Settings} />
+            {/* <Route exact path="/settings" component={Settings} /> */}
             <Route exact path="/signup" component={SignupUser} />
             <Route
               path="/login"

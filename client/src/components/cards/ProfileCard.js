@@ -24,35 +24,37 @@ class Profile extends React.Component {
     skills: []
   };
   componentDidMount = () => {
-    if (this.props.user._id === undefined) {
-      console.log(this.props);
-    } else {
-      console.log("updatePro" + this.props.user._id);
-      axios.get("/user/", this.props.user._id).then((res, err) => {
-        console.log(res.data);
-        console.log(err);
-        const userS = res.data.user;
-        // const profile = res.data.user.education[0]
-        this.setState({
-          ...userS
-          // id:userS._id,
-          // userFullName: userS.fullname,
-          // email: userS.email,
-          // school: profile.school,
-          // graduated: profile.gradyear,
-          // degree: profile.degree,
-          // otherEdu: profile.otheredu,
-          // location: profile.location,
-          // awards: profile.awards,
-          // job: profile.job,
-          // jobtitle: profile.jobtitle,
-          // timewith: profile.timewith,
-          // links: profile.links,
-          // skills:profile.skills,
-          // publicId: profile.publicId
-        });
-      });
-    }
+    console.log("profileCard props", this.props);
+    this.setState({ ...this.props });
+    // if (this.props._id === undefined) {
+    //   console.log(this.props);
+    // } else {
+    //   console.log("updatePro" + this.props.user._id);
+    //   axios.get("/user/", this.props.user._id).then((res, err) => {
+    //     console.log(res.data);
+    //     console.log(err);
+    //     const userS = res.data.user;
+    //     // const profile = res.data.user.education[0]
+    //     this.setState({
+    //       ...userS
+    //       // id:userS._id,
+    //       // userFullName: userS.fullname,
+    //       // email: userS.email,
+    //       // school: profile.school,
+    //       // graduated: profile.gradyear,
+    //       // degree: profile.degree,
+    //       // otherEdu: profile.otheredu,
+    //       // location: profile.location,
+    //       // awards: profile.awards,
+    //       // job: profile.job,
+    //       // jobtitle: profile.jobtitle,
+    //       // timewith: profile.timewith,
+    //       // links: profile.links,
+    //       // skills:profile.skills,
+    //       // publicId: profile.publicId
+    //     });
+    //   });
+    // }
   };
   // componentDidUpdate=()=>{
   //     this.setState({id:this.props._id, user:this.props.username,userFullName:this.props.fullname,email:this.props.email})

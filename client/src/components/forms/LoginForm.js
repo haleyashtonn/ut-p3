@@ -29,13 +29,13 @@ class LoginForm extends React.Component {
         password: this.state.password
       })
       .then(response => {
-        console.log("login response: ");
-        console.log(response);
+        console.log("login response: ", response);
         if (response.status === 200) {
           // update App.js state
           this.props.updateUser({
             loggedIn: true,
-            username: response.data.username
+            // username: response.data.username
+            ...response.data._doc
           });
           // update the state to redirect to home
           this.setState({
