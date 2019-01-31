@@ -111,12 +111,6 @@ class Footer extends React.Component {
                       Home
                     </a>
                   </li>
-
-                  <li>
-                    <a className="white-text text-lighten-3" href="/settings">
-                      Settings
-                    </a>
-                  </li>
                   <li>
                     <a className="white-text text-lighten-3" href="/FindJobs">
                       Find Jobs

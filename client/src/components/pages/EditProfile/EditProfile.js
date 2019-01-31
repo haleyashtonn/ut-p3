@@ -28,46 +28,23 @@ class CreateProfile extends React.Component {
     awards: "",
     formName: "",
     links: [],
-    skills: {
-      HTML: false,
-      CSS: true,
-      PHP: false,
-      SQL: false,
-      NoSQL: false,
-      NPM: false,
-      Kotlin: false,
-      Swift: false,
-      Node: false,
-      Bootstrap: false,
-      Yarn: false,
-      Git: false,
-      Javascript: false,
-      React: false,
-      Angular: false,
-      Ruby: false,
-      Java: false,
-      Python: false,
-      Flutter: false,
-      WordPress: false
-    },
+    skills: [],
     redirectTo: null
   };
   componentDidMount = () => {
-    console.log("update edit" + this.props._id);
     axios
       .get("/user", { id: this.props.id })
       .then(response => {
-        console.log(response);
         if (response.status === 200) {
           const userN = response.data.user.username;
           const id = response.data.user._id;
           const name = response.data.user.fullname;
-          console.log(response.data.user.fullname);
-          axios.get("/education");
+          const email = response.data.user.email;
           this.setState({
             username: userN,
             userId: id,
-            userFullName: name
+            userFullName: name,
+            email: email
           });
 
           console.log(this.state);
@@ -78,23 +55,6 @@ class CreateProfile extends React.Component {
       });
   };
   submitProfile = () => {
-    // const payload = {
-    //   username: this.state.username,
-    //   password: this.state.password,
-    //   school: this.state.school,
-    //   degree: this.state.degree,
-    //   gradyear: this.state.graduated,
-    //   otheredu: this.state.otherEdu,
-    //   awards: this.state.awards,
-    //   skills: this.state.skills,
-    //   job: this.state.job,
-    //   jobtitle: this.state.jobtitle,
-    //   timewith: this.state.timewith,
-    //   duties: this.state.duties,
-    //   links: this.state.links,
-    //   publicId: this.state.publicId,
-    //   location: this.state.location
-    // };
     console.log(this.props._id);
     axios
       .post("/education/", {
@@ -134,80 +94,22 @@ class CreateProfile extends React.Component {
     this.setState({
       [name]: props
     });
-    // console.log(props, name);
-    // console.log("name");
   };
   handleTab = event => {
-    console.log(event.target.className);
     if (event.target.className === "form-tab") {
       const name = event.target.id;
       this.setState({ formName: name });
-
-      console.log(name);
     } else {
       console.log("dont switch");
     }
   };
-  checkedBox = (val, name) => {
-    console.log(val);
-    let skillsArr = {
-      HTML: false,
-      CSS: this.state.skills.Css,
-      PHP: false,
-      SQL: false,
-      NoSQL: false,
-      NPM: false,
-      Kotlin: false,
-      Swift: false,
-      Node: false,
-      Bootstrap: false,
-      Yarn: false,
-      Git: false,
-      Javascript: false,
-      React: false,
-      Angular: false,
-      Ruby: false,
-      Java: false,
-      Python: false,
-      Flutter: false,
-      WordPress: false
-    };
-
-    // add checked attribute to all options
-    // write function based on that
-    console.log(name);
-
-    console.log(skillsArr);
-
-    let skill = skillsArr[name];
-    console.log(skill);
-    let asset = [name];
-    console.log(asset);
-
-    skill = val;
-    console.log(skill);
-    console.log(skillsArr[name]);
-    console.log(skillsArr);
-    // this.setState({skills:skillsArr})
-
-    // this.setState({skill:val})
-    // console.log("match")
-    //  this.setState({
-    //     skills:[{[name]:true}]
-    // })
-    //     console.log(this.state.skills)
-    //     console.log(name)
-    // }
-    // else if(skillName===true){
-    // this.setState({
-    //     skills:{[name]:false}
-    //     })
-    //}
+  checkedBox = (props, name) => {
+    this.setState({
+      skills: this.state.skills + "   " + [name]
+    });
   };
   stateUpload = (link, pId) => {
     this.setState({ url: link, publicId: pId });
-    console.log("last");
-    console.log(link);
   };
 
   render() {
@@ -287,18 +189,21 @@ class CreateProfile extends React.Component {
                 <Skills onformCheck={this.checkedBox} {...this.state.skills} />
               ) : this.state.formName === "pLinks" ? (
                 <LinkForm onformChange={this.formChanged} />
-              ) : this.state.fromName === "" ? (
-                <EduForm onformChange={this.formChanged} {...this.state} />
               ) : (
                 <EduForm onformChange={this.formChanged} {...this.props} />
               )}
+              <Button
+                id="submitPro"
+                href="/profile"
+                onClick={this.submitProfile}
+              >
+                Submit Profile
+              </Button>
+              <div className="code-separator-2" />
             </div>
-            <Button href="/profile" onClick={this.submitProfile}>
-              Submit Profile
-            </Button>
 
             <div id="code-resume" className="col s12 m6 l4 offset-l1">
-              <PreviewCard {...this.state} {...this.props} />
+              <PreviewCard {...this.state} {...this.state.skills} />
             </div>
           </div>
         </div>

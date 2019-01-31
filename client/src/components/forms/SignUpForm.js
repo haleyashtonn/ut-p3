@@ -23,8 +23,6 @@ class SignUpForm extends React.Component {
   };
 
   handleSubmit = event => {
-    console.log("sign-up handleSubmit, state: ");
-    console.log(this.state);
     event.preventDefault();
     if (this.state.username === "" || this.state.password === "") {
       console.log("invalid input");

@@ -1,6 +1,6 @@
 import React from "react";
 import ImageBox from "../display/Image";
-import axios from "axios";
+import { Button } from "react-materialize";
 
 class Profile extends React.Component {
   state = {
@@ -25,48 +25,15 @@ class Profile extends React.Component {
   };
   componentDidMount = () => {
     this.props.getUser();
-    console.log("profileCard props", this.props);
     this.setState({ ...this.props });
     if (this.props.education.length === 0) {
       console.log("empty education array");
     } else {
+      console.log("spread props.education");
       this.setState({ ...this.props.education[0] });
     }
-    // console.log("profileCard props", this.props);
-    // this.setState({ ...this.props });
-    // if (this.props._id === undefined) {
-    //   console.log(this.props);
-    // } else {
-    //   console.log("updatePro" + this.props.user._id);
-    //   axios.get("/user/", this.props.user._id).then((res, err) => {
-    //     console.log(res.data);
-    //     console.log(err);
-    //     const userS = res.data.user;
-    //     // const profile = res.data.user.education[0]
-    //     this.setState({
-    //       ...userS
-    //       // id:userS._id,
-    //       // userFullName: userS.fullname,
-    //       // email: userS.email,
-    //       // school: profile.school,
-    //       // graduated: profile.gradyear,
-    //       // degree: profile.degree,
-    //       // otherEdu: profile.otheredu,
-    //       // location: profile.location,
-    //       // awards: profile.awards,
-    //       // job: profile.job,
-    //       // jobtitle: profile.jobtitle,
-    //       // timewith: profile.timewith,
-    //       // links: profile.links,
-    //       // skills:profile.skills,
-    //       // publicId: profile.publicId
-    //     });
-    //   });
-    // }
   };
-  // componentDidUpdate=()=>{
-  //     this.setState({id:this.props._id, user:this.props.username,userFullName:this.props.fullname,email:this.props.email})
-  // }
+
   render() {
     return (
       <div id="Profile" className="row code-index ">
@@ -78,30 +45,61 @@ class Profile extends React.Component {
             </h6>
             <p id="email">{this.state.email}</p>
             <h6>{this.state.location}</h6>
-            <h4>Education</h4>
+            <h4>Education:</h4>
             <h5 id="school">{this.state.school}</h5>
-            <div id="graduated">{this.state.graduated}</div>
-            <div id="degree">{this.state.degree}</div>
+            <div id="graduated">
+              Grad:<div />
+              {this.state.gradyear}
+            </div>
+            <div id="degree">
+              Degree<div />
+              {this.state.degree}
+            </div>
             <div className="textbox" id="otherEdu">
-              {this.state.otherEdu}
+              Other Training:<div />
+              {this.state.otheredu}
             </div>
             <div className="textbox" id="awards">
-              {this.props.awards}
+              Awards:<div />
+              {this.state.awards}
             </div>
-            <h4>Work Experience</h4>
+            <h4>Work Experience:</h4>
             <h5 id="job">{this.state.job}</h5>
-            <h6 id="jobtitle">{this.state.jobtitle}</h6>
-            <div id="time">{this.state.timewith}</div>
+            <h6 id="jobtitle">
+              Title:<div />
+              {this.state.jobtitle}
+            </h6>
+            <div id="time">
+              Time With: <div />
+              {this.state.timewith}
+            </div>
             <div className="textbox" id="duties">
+              Duties:<div />
               {this.state.duties}
             </div>
             <h4>Skills</h4>
-            <div className="textbox" id="skills" />
+            <div className="textbox" id="skills">
+              {this.state.skills}
+            </div>
             <h4>Professional Links:</h4>
             <div className="textbox" id="links">
               {this.state.links}
             </div>
           </form>
+          {this.props.jobs.length > 0 ? (
+            <form>
+              <h5>{this.props.jobs[0].company}</h5>
+              <h6>{this.props.jobs[0].title}</h6>
+              <Button type="button" id="apply" className="joblink">
+                <a href={this.props.jobs[0].link}>Apply</a>
+              </Button>
+              :
+            </form>
+          ) : (
+            <form>
+              <h5>Saved Job Searches</h5>
+            </form>
+          )}
         </div>
       </div>
     );

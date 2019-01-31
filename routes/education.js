@@ -23,7 +23,6 @@ router.post("/", (req, res) => {
     }
   )
     .then(function(data) {
-      console.log("this" + data);
       res.json(data);
     })
     .catch(function(err) {

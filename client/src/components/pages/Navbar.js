@@ -9,7 +9,7 @@ class NavBar extends React.Component {
             <nav>
               <div className="nav-wrapper cyan darken-1">
                 <a href="/" id="title">
-                  {this.props.username || "[Coding Connect]"}
+                  <b>{this.props.username || "[Coding Connect]"}</b>
                 </a>
                 <div className="right hide-on-med-and-up">
                   <Dropdown

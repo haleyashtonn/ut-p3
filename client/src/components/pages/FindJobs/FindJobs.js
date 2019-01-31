@@ -1,7 +1,5 @@
 import React from "react";
 import JobsForm from "../../forms/JobsSearch";
-import PostBtn from "../../buttons/PostBtn";
-
 import axios from "axios";
 import Results from "../../cards/ResultCard";
 
@@ -18,37 +16,30 @@ class SearchJobs extends React.Component {
         params: { where: this.state.where, job: this.state.job }
       })
       .then((res, err) => {
-        // const postings = [];
-        console.log(res.data);
         if (err) {
           console.log(err);
         } else if (res) {
-          // for (let i = 0; i < res.data.length; i++) {
-          //   postings.push({
-          //     title: res.data[i].title,
-          //     company: res.data[i].company,
-          //     url: res.data[i].url,
-          //     location: res.data[i].location
-          //   });
-          // }
-          // postings.push(res.data)
-          // console.log(postings);
           let result = res.data;
 
           this.setState({
             results: result
           });
-          // console.log(this.state);
         }
       });
+  };
+  saveJob = (company, title, link) => {
+    axios.post("/jobs/", {
+      userId: this.props._id,
+      company: company,
+      title: title,
+      href: link
+    });
   };
 
   formChanged = (props, name) => {
     this.setState({
       [name]: props
     });
-    console.log(props, name);
-    console.log("name");
   };
 
   render() {
@@ -58,14 +49,10 @@ class SearchJobs extends React.Component {
         <div className="row">
           <div className="col s12 m10 l6 offset-l3">
             <JobsForm onformChange={this.formChanged} />
-            <button
-              id="findJobs"
-              onClick={this.searchJobs}
-              // onSubmit={this.showRes}
-            >
+            <button id="findJobs" onClick={this.searchJobs}>
               Find Jobs
             </button>
-            <Results jobs={this.state.results} />
+            <Results savingJob={this.saveJob} jobs={this.state.results} />
           </div>
         </div>
       </div>

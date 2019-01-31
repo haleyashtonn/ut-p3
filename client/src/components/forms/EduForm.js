@@ -1,9 +1,7 @@
 import React from "react";
 import GenString from "../inputs/TitleInput";
 import TextArea from "../inputs/TextArea";
-import PostBtn from "../buttons/PostBtn";
 import Axios from "axios";
-import { Button } from "react-materialize";
 
 class EduForm extends React.Component {
   handleChange = event => {
@@ -85,11 +83,8 @@ class EduForm extends React.Component {
                   onChange={this.handleChange}
                   value={this.props.awards}
                 />
-
-                <div className="code-separator-2" />
                 {/* <Button href="/user" onSubmit={this.handleClick} /> */}
               </form>
-              <div className="code-separator-1" />
             </div>
           </div>
         </div>
