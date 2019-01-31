@@ -1,0 +1,233 @@
+.App {
+  text-align: center;
+}
+
+/* overflow options */
+#preview {
+  overflow-wrap: normal;
+}
+
+#proPage {
+  overflow-wrap: normal;
+}
+
+.textbox {
+  overflow-wrap: break-word;
+}
+
+.card {
+  background-color: #3885a8;
+}
+
+.login {
+  background-color: #3885a8;
+}
+
+.btn-large {
+  background-color: whitesmoke;
+  color: #232188;
+  border-radius: 20%;
+}
+
+#editContainer {
+  height: 60%;
+}
+
+body {
+  filter: blur(0px);
+  -webkit-filter: blur(0px);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.pic {
+  background-image: url("./code_background.png");
+  z-index: 1;
+  filter: blur(0.5px);
+  filter: grayscale(15%);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#title {
+  color: white;
+}
+
+nav {
+  background-color: #1976d2;
+}
+
+form {
+  background-color: whitesmoke;
+  padding: 1em;
+  border-radius: 20px;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #a7bec5;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+nav,
+nav i,
+nav [class^="mdi-"],
+nav [class*="mdi-"],
+nav i.material-icons,
+nav .button-collapse i {
+  height: var(--height-nav);
+  line-height: var(--height-nav);
+}
+
+nav .brand-logo {
+  font-family: var(--font-highlight);
+  font-size: 1.05em;
+  height: 1.4em;
+  letter-spacing: 0.04em;
+  top: 0.15em;
+  margin-left: 1em;
+}
+
+/* Couldn't fix the logo. Need to come back */
+nav .brand-logo img {
+  height: 100%;
+}
+
+nav .code-drop-menu {
+  font-size: 0.75em;
+  letter-spacing: 0.01em;
+}
+
+nav #code-desktop li:last-child {
+  margin-right: 1em;
+}
+
+/* Footer */
+footer a:hover {
+  text-decoration: underline;
+}
+
+#code-footer-social li {
+  font-size: 1.6em;
+  float: left;
+  padding-right: 0.9em;
+}
+
+.footer-copyright {
+  font-size: 0.75em;
+}
+
+/* Signup, Login */
+#code-signup > .col,
+#code-login > .col {
+  background-color: var(--color-white-transparent);
+  border-radius: 2px;
+}
+
+/* 
+.code-vertical-align-wrapper {
+  height         : 100vh;
+  display        : flex;
+  justify-content: center;
+  flex-direction : column;
+} */
+
+.code-vertical-align-wrapper > .col {
+  position: relative;
+  top: calc(-1 * var(--height-nav));
+}
+
+h1.brand-logo img {
+  height: 100%;
+}
+
+#logo {
+  /* transform: translate(-50%, -50%); */
+  text-align: center;
+  background-color: #9fb0d6;
+  color: #3885a8;
+  border-radius: 10%;
+}
+
+.dropbutton {
+  background-color: #5890aa;
+}
+
+#code-resume {
+  margin-top: auto;
+}
+
+/* Vertical separators */
+.code-attacher-1 {
+  margin-bottom: 0;
+}
+
+.code-separator-1 {
+  height: 0.4em;
+}
+
+.code-separator-2 {
+  height: 1.2em;
+}
+
+.code-separator-3 {
+  height: 2em;
+}
+
+#forms {
+  border: 2px solid #3885a8;
+  border-top-left-radius: 40%;
+  border-top-right-radius: 40%;
+  background-color: #185069;
+  width: 100%;
+}
+
+#form-label {
+  font-weight: 800;
+  color: #185069;
+}
+
+#imgFull {
+  width: 40%;
+  height: 40%;
+  border-radius: 30%;
+}
+
+.form-tab {
+  width: 100%;
+  background-color: #185069;
+  border: 1px solid #185069;
+  color: antiquewhite;
+}
+
+#apply {
+  margin-right: 2em;
+  background-color: white;
+}
+
+#submitpro {
+  width: 10%;
+}
